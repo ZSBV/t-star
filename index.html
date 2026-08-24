@@ -179,7 +179,7 @@
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
                 <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
                 
                 <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
@@ -196,20 +196,20 @@
             </div>
 
             <!-- The White Star Mask (Overlay) - Optimized for iOS Safari Limits -->
-            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120vmax; height: 120vmax; pointer-events: none; z-index: 5; transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.15s ease-out; will-change: transform, opacity;" viewBox="0 0 1000 1000">
+            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 120vmax; height: 120vmax; pointer-events: none; z-index: 5; transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.15s ease-out; will-change: transform, opacity;" viewBox="0 0 1000 1000">
                 <!-- Massive star hole (radius 450) to require much less CSS scaling -->
                 <path d="M-1000,-1000 H2000 V2000 H-1000 Z M500,50 L599,350 L914,350 L659,536 L755,836 L500,650 L245,836 L341,536 L86,350 L401,350 Z" fill="#ffffff" fill-rule="evenodd"/>
             </svg>
 
             <!-- Initial Intro Text on White Background -->
-            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; width: 100%;">
+            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%;">
                 <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px;">T-Star Promotion</h1>
                 <p style="color: #666; font-size: 18px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
                 <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
             </div>
 
             <!-- Small floating star logo (hollow and animated) -->
-            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
+            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate3d(-50%, -50%, 0); z-index: 15; will-change: transform, opacity;">
                 <!-- 7s float makes it out of sync with the 5s draw, creating a very organic, non-static feel -->
                 <div style="animation: floatShooting 7s ease-in-out infinite;">
                     <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
@@ -276,15 +276,15 @@
                 // === PHASE 1 (0 → 0.25): Intro exits - star up, text down ===
                 const introFade = Math.max(0, 1 - progress / 0.25);
                 intro.style.opacity = introFade;
-                intro.style.transform = `translate(-50%, calc(-50% + ${progress * 80}px))`;
+                intro.style.transform = `translate3d(-50%, calc(-50% + ${progress * 80}px), 0)`;
 
                 // Star mask fades as it zooms
                 const scale = 1 + Math.pow(progress, 1.5) * 10;
-                svg.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                svg.style.transform = `translate3d(-50%, -50%, 0) scale(${scale})`;
                 svg.style.opacity = Math.max(0, 1 - progress / 0.2);
 
                 // Small star flies upward
-                smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 220}px)) scale(${1 + progress * 0.4})`;
+                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 220}px), 0) scale(${1 + progress * 0.4})`;
                 smallStar.style.opacity = introFade;
 
                 // === PHASE 2 (0.25 → 1.0): Partners fade in and STAY visible ===
@@ -326,7 +326,7 @@
             position: absolute;
             top: 40%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate3d(-50%, -50%, 0);
             transition-property: transform, opacity;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform, opacity;
