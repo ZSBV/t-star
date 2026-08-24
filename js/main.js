@@ -141,10 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (isValid) {
-                // Here you would normally send the form data via AJAX/fetch
-                // For now, simulate success
-                alert('Vielen Dank für Ihre Bewerbung! Wir werden uns in Kürze bei Ihnen melden.');
-                applyForm.reset();
+                // Submit to Netlify via AJAX (Supports file uploads)
+                const formData = new FormData(applyForm);
+                fetch("/", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(() => {
+                    alert('Vielen Dank für Ihre Bewerbung! Wir werden uns in Kürze bei Ihnen melden.');
+                    applyForm.reset();
+                })
+                .catch((error) => {
+                    alert('Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut.');
+                });
             }
         });
 
