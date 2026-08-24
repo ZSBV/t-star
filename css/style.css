@@ -1,0 +1,819 @@
+/* ==========================================================================
+   T-STAR PROMOTION - PREMIUM RECRUITING WEBSITE STYLES
+   ========================================================================== */
+
+/* --- CSS VARIABLES --- */
+:root {
+    --primary: #F06723;
+    --primary-dark: #D4551A;
+    --primary-light: #ff8547;
+    --secondary: #2E572F;
+    --dark: #111111;
+    --dark-alt: #1a1a1a;
+    --light: #FFFFFF;
+    --gray-bg: #F8F9FA;
+    --gray-light: #e9ecef;
+    --text: #333333;
+    --text-light: #666666;
+    
+    --font-main: 'Montserrat', sans-serif;
+    --radius: 12px;
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 15px 35px rgba(0,0,0,0.1);
+    
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text);
+    background-color: var(--light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+/* --- HEADER & NAVIGATION --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9000;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link img {
+    height: 45px;
+    width: auto;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none; /* FIX: Removes the bullet points */
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none; /* Double check for safety */
+}
+
+.nav-links li a {
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: var(--dark);
+    cursor: pointer;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('../images/hero-final-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    padding-top: 80px; /* Offset for header */
+}
+
+/* Dark professional overlay with orange tint */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0.7) 50%, rgba(17,17,17,0.85) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    color: var(--light);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    letter-spacing: -1px;
+}
+
+.hero h2 {
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400; /* FIXED from ultra-bold */
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.tagline {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--light);
+    box-shadow: 0 4px 15px rgba(240, 103, 35, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(240, 103, 35, 0.5);
+    color: var(--light) !important;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--light);
+    border: 2px solid var(--light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light);
+    color: var(--dark) !important;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 10px 24px;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--light) !important;
+}
+
+/* --- SECTIONS (GLOBAL) --- */
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--text-light);
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* --- OFFENE STELLEN (JOBS GRID) --- */
+.jobs {
+    background-color: var(--gray-bg);
+}
+
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.job-card {
+    background: var(--light);
+    border-radius: var(--radius);
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border-top: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.job-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.job-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.job-meta i {
+    color: var(--primary);
+    width: 20px;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background: var(--accent-light);
+    color: var(--primary-dark);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.job-desc {
+    margin-bottom: 25px;
+    color: var(--text-light);
+    flex-grow: 1;
+}
+
+/* --- VORTEILE (BENEFITS) --- */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    color: var(--text-light);
+}
+
+/* --- LEISTUNGEN (SERVICES) --- */
+.leistungen {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.leistungen .section-header h2 {
+    color: var(--light);
+}
+
+.leistungen .section-header p {
+    color: rgba(255,255,255,0.7);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-box {
+    background: rgba(255,255,255,0.05);
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+}
+
+.service-box:hover {
+    background: rgba(240, 103, 35, 0.1);
+    border-color: var(--primary);
+}
+
+.service-box i {
+    font-size: 45px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.service-box h3 {
+    color: var(--light);
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- BEWERBUNG (APPLY FORM) --- */
+.bewerben {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--light);
+}
+
+.bewerben .section-header h2 {
+    color: var(--light);
+}
+
+.bewerben .section-header h2::after {
+    background-color: var(--light);
+}
+
+.bewerben .section-header p {
+    color: rgba(255,255,255,0.9);
+}
+
+.form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--light);
+    padding: 50px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    color: var(--dark);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 18px;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    transition: var(--transition);
+    background: var(--gray-bg);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--light);
+    box-shadow: 0 0 0 3px rgba(240, 103, 35, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    margin-top: 4px;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.form-wrapper .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* --- KONTAKT & MAP --- */
+.kontakt-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info {
+    background: var(--light);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-info h3 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.contact-detail {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.contact-detail i {
+    color: var(--primary);
+    font-size: 20px;
+    margin-top: 3px;
+}
+
+.map-container {
+    height: 100%;
+    min-height: 400px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 60px 0 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo img {
+    height: 50px;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+}
+
+/* --- FLOATING BUTTONS --- */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+.fab:hover {
+    transform: scale(1.1);
+}
+
+.fab.whatsapp {
+    background-color: #25D366;
+}
+
+.fab.email {
+    background-color: var(--primary);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+    .kontakt-wrapper,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--light);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow-md);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden */
+        transition: clip-path 0.3s ease-in-out;
+        gap: 15px;
+    }
+    
+    .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    .hero h1 {
+        font-size: 40px;
+    }
+    
+    .hero h2 {
+        font-size: 18px;
+    }
+    
+    .form-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* Interaktiver Parallax-Effekt (Scroll into office) */
+.vorteile {
+    background: var(--dark);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: var(--light);
+}
+.vorteile .section-header h2 {
+    color: var(--light);
+}
+.vorteile .benefit-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--light);
+}
+.vorteile .benefit-card h3, 
+.vorteile .benefit-card p {
+    color: var(--light);
+}
+
+/* Mobile Adjustments for Scrollytelling */
+@media (max-width: 768px) {
+    .scrolly-step h1 {
+        font-size: 32px !important;
+    }
+    .scrolly-step h2 {
+        font-size: 18px !important;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* --- TEAM SECTION --- */
+.team {
+    padding: 80px 0;
+    background-color: var(--light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.team-member-info {
+    padding: 25px;
+}
+
+.team-member h3 {
+    color: var(--dark);
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.team-member p {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

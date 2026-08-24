@@ -1,0 +1,140 @@
+module.exports = [
+  {
+    title: 'Handelsvertreter Glasfaser & Energie (m/w/d)',
+    badge: 'Top Provision',
+    badgeClass: 'hot',
+    salaryMin: 3000,
+    salaryMax: 8000,
+    aufgaben: 'Aktive Neukundenakquise im Door-to-Door-Vertrieb; Beratung und Verkauf von Glasfaser-, Strom- und Gasverträgen; Generierung qualifizierter Leads für Photovoltaik-Anbieter; Aufbau und Pflege langfristiger Kundenbeziehungen; Eigenständige Tourenplanung und Gebietsentwicklung; Vertragsabschlüsse direkt beim Kunden vor Ort; Markt- und Wettbewerbsbeobachtung in deinem Gebiet',
+    anforderungen: 'Erfahrung im Vertrieb oder Außendienst von Vorteil; Kommunikationsstärke und freundliches Auftreten; Selbständige und zielorientierte Arbeitsweise; Führerschein Klasse B und eigener PKW; Gute Deutschkenntnisse in Wort und Schrift; Spaß am direkten Kundenkontakt; Quereinsteiger ausdrücklich willkommen',
+    vorteile: 'Überdurchschnittliche Provisionen (3.000 bis 8.000+ Euro monatlich möglich); Intensive Einarbeitung und regelmäßige Schulungen; Flexible Arbeitszeiten - du bist dein eigener Chef; Starke Partnerprodukte (Glasfaser, Energie, PV); Ein motiviertes Team mit echtem Zusammenhalt; Langfristige Zusammenarbeit und Karrieremöglichkeiten; Modernste Vertriebstools und CRM-Systeme',
+    beschreibung: `Starte deine Karriere als Handelsvertreter (§84 HGB) bei T-Star Promotion! Wir suchen motivierte Verkaufstalente für den direkten Vertrieb (Door-to-Door) von zukunftsweisenden Produkten. Du berätst Kunden rund um die Themen Glasfaserausbau und Energie (Strom & Gas) und sicherst dir durch unser starkes Partnernetzwerk exzellente Verdienstmöglichkeiten. Dank unserer intensiven Einarbeitung und der T-Star Akademie bist du bestens gerüstet, um in deinem Vertriebsgebiet durchzustarten und dir als eigener Chef ein lukratives Business aufzubauen.`,
+    seoDescription: 'Handelsvertreter (m/w/d) für Glasfaser & Energie in {{LOCATION}} gesucht. Bis zu 8.000 Euro/Monat. Jetzt bei T-Star Promotion bewerben!',
+    localContexts: [
+      'In ${city} treiben wir den Glasfaserausbau aktiv voran und suchen dich als lokalen Experten.',
+      'Die Energiewende ist in ${city} ein großes Thema - hilf den Haushalten beim Wechsel und spare ihnen Geld.',
+      'Als Handelsvertreter in ${city} profitierst du von einem enormen Potenzial an unentschlossenen Kunden.',
+      'Nutze dein regionales Netzwerk in ${city} und Umgebung für deinen vertrieblichen Erfolg.',
+      'Die Nachfrage nach schnellem Internet in ${city} steigt rasant - deine Chance auf Top-Provisionen.',
+      'Wir expandieren stark im Raum ${city} und bieten exklusive Gebiete für unsere Vertriebspartner.',
+      'Repräsentiere in ${city} namhafte Energie- und Telekommunikationsanbieter direkt vor Ort.',
+      'Gestalte die digitale Zukunft von ${city} mit und berate Privathaushalte kompetent am Point of Sale.'
+    ],
+    image: 'images/jobs/handelsvertreter.png'
+  },
+  {
+    title: 'Quereinsteiger im Vertrieb (m/w/d)',
+    badge: 'Quereinsteiger',
+    badgeClass: '',
+    salaryMin: 2500,
+    salaryMax: 6000,
+    aufgaben: 'Kundenberatung und Produktvorstellung direkt vor Ort; Vermarktung von Energietarifen und Glasfaseranschlüssen; Sukzessiver Aufbau eines eigenen Kundenstamms; Regelmäßige Teilnahme an Vertriebstrainings und Coachings; Eigenständige und strukturierte Tourenplanung; Dokumentation der Kundenkontakte im System; Aktiver Austausch in Teammeetings',
+    anforderungen: 'Keine Vorkenntnisse im Vertrieb zwingend erforderlich; Hohe Motivation und ausgeprägte Lernbereitschaft; Freude am Umgang mit unterschiedlichsten Menschen; Absolute Zuverlässigkeit und Pünktlichkeit; Fließende Deutschkenntnisse; Führerschein Klasse B (vorteilhaft, aber nicht zwingend); Ein gepflegtes und professionelles Erscheinungsbild',
+    vorteile: 'Intensive und strukturierte Einarbeitung von Tag eins; Persönlicher Mentor in den ersten entscheidenden Wochen; Hervorragende Aufstiegsmöglichkeiten bis zum Teamleiter; Attraktives und leistungsgerechtes Provisionsmodell; Flexible Arbeitszeitgestaltung für eine gute Work-Life-Balance; Regelmäßige Team-Events und spannende Incentives; Spezielles Quereinsteiger-Bonusprogramm',
+    beschreibung: `Du suchst einen echten Neustart und möchtest im Vertrieb durchstarten, auch wenn du noch keine Erfahrung hast? Bei T-Star Promotion bieten wir dir die perfekte Plattform, um als Quereinsteiger erfolgreich zu werden! In unserer Akademie vermitteln wir dir alles, was du für den Vertrieb von starken und krisensicheren Produkten im Bereich Energie und Glasfaser wissen musst. Mit Fleiß, Einsatzbereitschaft und unserem Mentoring-Programm wirst du schnell erste Erfolge feiern und deine Karriere auf das nächste Level heben.`,
+    seoDescription: 'Quereinsteiger im Vertrieb (m/w/d) in {{LOCATION}}. Keine Erfahrung nötig! Schulung inklusive. Jetzt bei T-Star Promotion starten!',
+    localContexts: [
+      'Dein Neustart in ${city}: Wir machen dich fit für den Vertrieb, Schritt für Schritt.',
+      'Starte ohne Vorkenntnisse in den boomenden Markt für Glasfaser und Energie in ${city}.',
+      'In ${city} bieten wir ein familiäres Team, das Quereinsteiger herzlich aufnimmt und fördert.',
+      'Lerne das Vertriebshandwerk direkt in ${city} und werde zum Top-Verkäufer.',
+      'Viele unserer erfolgreichsten Partner in ${city} haben genau wie du als Quereinsteiger begonnen.',
+      'Entdecke dein Verkaufstalent in den Wohngebieten von ${city} mit voller Unterstützung deines Mentors.',
+      'Wir garantieren eine Top-Ausbildung am Standort ${city} - Motivation ist alles, was du mitbringen musst.',
+      'Nutze die Chance in ${city}, dir auch ohne Studium oder spezielle Ausbildung ein Top-Gehalt aufzubauen.'
+    ],
+    image: 'images/jobs/quereinsteiger.png'
+  },
+  {
+    title: 'Außendienstmitarbeiter Energie (m/w/d)',
+    badge: 'Energie',
+    badgeClass: 'elite',
+    salaryMin: 2800,
+    salaryMax: 7000,
+    aufgaben: 'Kompetente Beratung von Privatkunden zu aktuellen Strom- und Gastarifen; Durchführung von transparenten Tarifvergleichen direkt vor Ort; Aktive Unterstützung der Kunden beim Anbieterwechsel; Neukundengewinnung im dynamischen Door-to-Door-Bereich; Nachhaltige Bestandskundenpflege; Systematische Gebietsanalyse und Optimierung der Routen; Umsetzung von speziellen Vertriebskampagnen',
+    anforderungen: 'Vertriebsaffinität oder idealerweise erste Erfahrungen im Außendienst; Ausgeprägtes Verhandlungsgeschick und Überzeugungskraft; Ein souveränes, sympathisches und authentisches Auftreten; Hohe Eigenmotivation und spürbare Abschlussstärke; Räumliche Mobilität (Führerschein Klasse B und eigener PKW); Sehr zielorientierte Arbeitsweise; Fließende Deutschkenntnisse',
+    vorteile: 'Überdurchschnittliche Verdienstmöglichkeiten in einem krisensicheren Markt; Ein Portfolio mit den stärksten Energieversorgern Deutschlands; Exklusive und gut strukturierte Gebiete für die Vermarktung; Professionelle Backoffice-Unterstützung für reibungslose Abläufe; Regelmäßige Verkaufsschulungen zu neuen Marktentwicklungen; Realistische Möglichkeit zur Entwicklung als Teamleitung; Modernstes Equipment für den komplett digitalen Vertragsabschluss',
+    beschreibung: `Werde Teil unseres erfolgreichen Energieteams! Als Außendienstmitarbeiter bei T-Star Promotion berätst du Kunden kompetent zu aktuellen Strom- und Gastarifen. In Zeiten schwankender Energiepreise hilfst du Privathaushalten durch intelligente und seriöse Tarifwechsel bares Geld zu sparen. Es erwarten dich absolute Top-Provisionen, ein starkes Partnernetzwerk im boomenden Energiemarkt und eine Unternehmenskultur, die deine Erfolge feiert.`,
+    seoDescription: 'Außendienstmitarbeiter Energie (m/w/d) in {{LOCATION}}. Strom & Gas Vertrieb. Top Provisionen bei T-Star Promotion!',
+    localContexts: [
+      'Der Energiemarkt in ${city} ist in Bewegung - berate Haushalte und profitiere von der Wechselbereitschaft.',
+      'Als Energieberater in ${city} bist du ein gern gesehener Gast, wenn es um das Sparen von Stromkosten geht.',
+      'Wir versorgen ${city} mit fairen Energietarifen und du bist unser Gesicht vor Ort.',
+      'Baue dir in ${city} ein lukratives Netzwerk im Energiesektor auf.',
+      'Nutze das enorme Potenzial der Haushalte in ${city}, die noch in teuren Grundversorgungstarifen feststecken.',
+      'In ${city} bieten wir dir perfekt vorbereitete Gebiete für die Energievermarktung.',
+      'Dein Einsatzort ist ${city} und Umgebung - kurze Wege und maximale Kundenkontakte.',
+      'Hilf den Menschen in ${city} bei der Energiewende und sichere dir überdurchschnittliche Provisionen.'
+    ],
+    image: 'images/jobs/energie.png'
+  },
+  {
+    title: 'Vertriebsmitarbeiter PV-Leadgenerierung (m/w/d)',
+    badge: 'PV-Leads',
+    badgeClass: '',
+    salaryMin: 2500,
+    salaryMax: 5500,
+    aufgaben: 'Gezielte Ansprache von Hauseigentümern zum Thema Photovoltaik; Qualifizierung von interessierten potenziellen Kunden (Leads); Erste grobe Bedarfsanalyse und Potenzialermittlung vor Ort; Verbindliche Vereinbarung von Beratungsterminen für unsere PV-Experten; Lückenlose Dokumentation der generierten Leads im CRM-System; Kontinuierlicher Aufbau von Netzwerken im zugeteilten Gebiet; Professionelle Repräsentation unserer namhaften Partnermarken',
+    anforderungen: 'Starkes Interesse an erneuerbaren Energien und Nachhaltigkeitsthemen; Hohes Kommunikationsgeschick im Umgang mit anspruchsvollen Eigenheimbesitzern; Die nötige Hartnäckigkeit und Ausdauer im Direktvertrieb; Ein durchweg sympathisches und professionelles Auftreten; Viel Eigeninitiative und eine selbständig strukturierte Arbeitsweise; Führerschein Klasse B zwingend erforderlich; Erste Erfahrung in der Leadgenerierung oder Promo-Tätigkeit von Vorteil',
+    vorteile: 'Arbeiten in einem absoluten Zukunfts- und Wachstumsmarkt; Sehr attraktive Vergütung pro erfolgreich qualifiziertem Lead; Umfassende Einschulung in die Grundlagen der Photovoltaik; Äußerst flexible Einteilung der eigenen Arbeitszeiten; Flache Hierarchien und schnelle, unkomplizierte Entscheidungswege; Regelmäßige Teambuilding-Maßnahmen und Events; Echte Aufstiegschancen in die direkte PV-Fachberatung',
+    beschreibung: `Die Energiewende ist in vollem Gange und bei uns kannst du ganz vorne mit dabei sein! Als Vertriebsmitarbeiter für die PV-Leadgenerierung bei T-Star Promotion bist du der erste und wichtigste Ansprechpartner für Eigenheimbesitzer, die sich für die Nutzung von Solarenergie interessieren. Du musst nicht den kompletten Verkauf abschließen, sondern weckst das Interesse und bereitest den Weg für unsere Experten. Dabei profitierst du von einer äußerst lukrativen Vergütungsstruktur und leistest gleichzeitig einen Beitrag zum Klimaschutz.`,
+    seoDescription: 'PV-Leadgenerator (m/w/d) in {{LOCATION}}. Photovoltaik-Vertrieb mit Top-Vergütung. Jetzt bei T-Star Promotion bewerben!',
+    localContexts: [
+      'Das Solarpotenzial auf den Dächern von ${city} ist riesig - entdecke es!',
+      'Finde Eigenheimbesitzer in ${city}, die bereit für ihre eigene Photovoltaikanlage sind.',
+      'Die Nachfrage nach grüner Energie in ${city} steigt - werde unser Lead-Experte.',
+      'Als PV-Leadgenerator in ${city} bist du der Türöffner für die regionale Energiewende.',
+      'Erschließe die Wohngebiete in und um ${city} für unsere starken PV-Partner.',
+      'In ${city} gibt es tausende geeignete Dächer - jeder Lead ist bares Geld für dich.',
+      'Profitiere von den lokalen Förderprogrammen in ${city}, die das Kundeninteresse zusätzlich wecken.',
+      'Dein Kommunikationsgeschick und die Dächer von ${city} - eine perfekte und lukrative Kombination.'
+    ],
+    image: 'images/jobs/pv-leads.png'
+  },
+  {
+    title: 'Handelsvertreter Door-to-Door (m/w/d)',
+    badge: 'Door-to-Door',
+    badgeClass: 'hot',
+    salaryMin: 3000,
+    salaryMax: 7500,
+    aufgaben: 'Professionelle Haustürberatung bei Privatkunden; Vermarktung von Glasfaser-, Strom- und Gasanschlüssen; Kompetente Tarifberatung und Vertragsabschluss vor Ort; Eigenverantwortliche Gebietsplanung und Routenoptimierung; Dokumentation aller Kundenkontakte im CRM-System; Teilnahme an wöchentlichen Team-Briefings und Coachings; Repräsentation unserer starken Partnermarken',
+    anforderungen: 'Freude am direkten Kundenkontakt an der Haustür; Selbstbewusstes und seriöses Auftreten; Hohe Eigenmotivation und unternehmerisches Denken; Führerschein Klasse B und eigener PKW; Gute Deutschkenntnisse; Bereitschaft zur Selbstständigkeit nach § 84 HGB; Quereinsteiger sind herzlich willkommen',
+    vorteile: 'Selbstständige Tätigkeit als Handelsvertreter nach § 84 HGB; Überdurchschnittliche Provisionen ohne Verdienstdeckelung; Exklusive Gebiete mit hohem Abschlusspotenzial; Intensive Einarbeitung in der T-Star Akademie; Persönlicher Mentor für deinen Einstieg; Modernste digitale Vertriebstools; Regelmäßige Incentives und Teamevents',
+    beschreibung: `Werde selbstständiger Handelsvertreter (§ 84 HGB) im Door-to-Door-Vertrieb bei T-Star Promotion! Du berätst Kunden direkt an der Haustür zu den Themen Glasfaser, Strom und Gas. Keine Kaltakquise am Telefon, sondern echte Gespräche von Mensch zu Mensch. Du bist dein eigener Chef, planst deinen Tag selbst und profitierst von einem der attraktivsten Provisionsmodelle der Branche. Unsere Top-Vertreter verdienen regelmäßig über 7.000 Euro im Monat.`,
+    seoDescription: 'Handelsvertreter Door-to-Door (m/w/d) in {{LOCATION}}. Selbstständig nach § 84 HGB. Bis zu 7.500 Euro/Monat. T-Star Promotion!',
+    localContexts: [
+      'Der Door-to-Door-Vertrieb in ${city} boomt - sichere dir jetzt dein Gebiet.',
+      'Klingel an den Türen von ${city} und verdiene überdurchschnittlich als selbstständiger Handelsvertreter.',
+      'In ${city} warten tausende potenzielle Kunden auf eine kompetente Beratung an der Haustür.',
+      'Nutze die hohe Wechselbereitschaft der Haushalte in ${city} für deinen Vertriebserfolg.',
+      'Als Handelsvertreter in ${city} bist du der erste Ansprechpartner für Glasfaser und Energie.',
+      'Starte als selbstständiger Handelsvertreter in ${city} und baue dir dein eigenes Business auf.',
+      'Die Nachbarschaften in ${city} sind dein Revier - plane deine Touren selbst und maximiere deine Provisionen.',
+      'Profitiere von der hohen Lebensqualität in ${city} und einem Job, der sich wirklich lohnt.'
+    ],
+    image: 'images/jobs/beratung.jpg'
+  },
+  {
+    title: 'Glasfaserberater im Außendienst (m/w/d)',
+    badge: 'Glasfaser',
+    badgeClass: '',
+    salaryMin: 3000,
+    salaryMax: 8000,
+    aufgaben: 'Beratung von Privathaushalten zum Thema Glasfaseranschluss; Vermarktung der Produkte unserer Telekommunikationspartner; Abschluss von Verträgen direkt vor Ort beim Kunden; Aufklärung über die Vorteile von schnellem Internet; Bestandskundenbetreuung und Upselling; Teilnahme an lokalen Infoveranstaltungen zum Glasfaserausbau; Enge Zusammenarbeit mit dem Vertriebsinnendienst',
+    anforderungen: 'Interesse an Telekommunikation und Glasfasertechnik; Überzeugungskraft und kommunikatives Talent; Selbstständige und strukturierte Arbeitsweise; Führerschein Klasse B; Fließende Deutschkenntnisse; Bereitschaft zur freien Mitarbeit als Handelsvertreter; Auch ohne Branchenerfahrung möglich dank intensiver Schulung',
+    vorteile: 'Tätigkeit als freier Handelsvertreter nach § 84 HGB; Attraktive Provisionen pro vermitteltem Glasfaseranschluss; Arbeiten im absoluten Zukunftsmarkt der Telekommunikation; Professionelle Schulungen rund um Glasfasertechnologie; Unterstützung durch erfahrenes Backoffice-Team; Flexible Zeiteinteilung als dein eigener Chef; Karrieremöglichkeiten bis zum Gebietsleiter',
+    beschreibung: `Der Glasfaserausbau in Deutschland nimmt Fahrt auf und du kannst ganz vorne mit dabei sein! Als Glasfaserberater bei T-Star Promotion arbeitest du als selbstständiger Handelsvertreter (§ 84 HGB) und berätst Privathaushalte zum Thema schnelles Internet. Du erklärst die Vorteile eines Glasfaseranschlusses und schließt Verträge direkt vor Ort ab. Durch unsere starken Telekommunikationspartner und die steigende Nachfrage nach Highspeed-Internet sind deine Verdienstmöglichkeiten hervorragend.`,
+    seoDescription: 'Glasfaserberater im Außendienst (m/w/d) in {{LOCATION}}. Selbstständig als Handelsvertreter. Top Provisionen bei T-Star Promotion!',
+    localContexts: [
+      'Der Glasfaserausbau in ${city} schreitet voran - berate Haushalte vor Ort und verdiene Top-Provisionen.',
+      'In ${city} werden aktuell viele Straßen mit Glasfaser erschlossen - nutze diese einmalige Chance.',
+      'Als Glasfaserberater in ${city} bist du der Experte für schnelles Internet in der Nachbarschaft.',
+      'Die Digitalisierung in ${city} braucht Glasfaser - und ${city} braucht dich als kompetenten Berater.',
+      'Unterstütze die Haushalte in ${city} beim Wechsel auf die Zukunftstechnologie Glasfaser.',
+      'Dein Wissen über Glasfaser wird in ${city} dringend gebraucht - starte jetzt als Berater.',
+      'Exklusive Gebiete in ${city} warten auf einen engagierten Glasfaserberater wie dich.',
+      'Werde Teil des Glasfaserbooms in ${city} und baue dir ein lukratives Business auf.'
+    ],
+    image: 'images/jobs/glasfaser.jpg'
+  }
+];

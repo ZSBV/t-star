@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Star Promotion | Karriere im Vertrieb – Jetzt bewerben!</title>
+    <meta name="description" content="Starte deine Karriere bei T-Star Promotion! Offene Stellen als Handelsvertreter & Quereinsteiger in Bremen und NRW. Glasfaser, Strom, Gas & PV-Vertrieb.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- 1. Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo-link">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#jobs">Offene Stellen</a></li>
+                    <li><a href="#vorteile">Vorteile</a></li>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#bewerben">Bewerben</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+

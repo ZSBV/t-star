@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Star Promotion | Karriere im Vertrieb – Jetzt bewerben!</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="T-Star Promotion – Dein Neustart im Vertrieb. Glasfaser, Strom, Gas & PV-Leads. Werde jetzt Handelsvertreter oder Quereinsteiger in Bremen & NRW.">
+    <meta name="keywords" content="Vertrieb, Handelsvertreter, Jobs, Quereinsteiger, Bremen, NRW, Glasfaser, Strom, Gas, Promotion, Karriere">
+    <meta name="author" content="T-Star Promotion">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://t-starpromotion.de/">
+    
+    <!-- Open Graph (Facebook/LinkedIn) -->
+    <meta property="og:title" content="T-Star Promotion | Karriere im Vertrieb – Jetzt bewerben!">
+    <meta property="og:description" content="Werde Teil unseres Teams und gestalte die Zukunft des Vertriebs mit! Lukrative Provisionen für Glasfaser, Strom, Gas & PV-Leads.">
+    <meta property="og:image" content="https://t-starpromotion.de/wp-content/uploads/2025/06/cropped-fav.png">
+    <meta property="og:url" content="https://t-starpromotion.de/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="T-Star Promotion | Karriere im Vertrieb">
+    <meta name="twitter:description" content="Starte deine Karriere bei T-Star Promotion! Offene Stellen als Handelsvertreter & Quereinsteiger in Bremen und NRW.">
+    <meta name="twitter:image" content="https://t-starpromotion.de/wp-content/uploads/2025/06/cropped-fav.png">
+    
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "T-Star Promotion",
+      "url": "https://t-starpromotion.de/",
+      "logo": "https://t-starpromotion.de/wp-content/uploads/2025/06/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+49-151-55767740",
+        "contactType": "customer service",
+        "email": "Info@t-starpromotion.de",
+        "availableLanguage": "German"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bahnhofstraße 15",
+        "addressLocality": "Schwanewede",
+        "postalCode": "28790",
+        "addressCountry": "DE"
+      }
+    }
+    </script>
+    
+    <!-- Schema.org WebSite (For Google Sitelinks) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "T-Star Promotion Karriere",
+      "url": "https://t-starpromotion.de/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://t-starpromotion.de/alle-jobs.html?ort={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+
+    <style>
+        /* ===== HERO RESPONSIVE ===== */
+        
+        /* Desktop: Full-screen background image */
+        .hero-desktop-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('images/hero-final-bg.jpg') center right / cover no-repeat;
+            z-index: 0;
+        }
+        
+        /* Mobile star image: hidden on desktop */
+        .hero-mobile-star {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            /* On mobile: hide the background, show clean gradient */
+            .hero-desktop-bg {
+                display: none;
+            }
+            .hero-mobile-star {
+                display: none;
+            }
+            #hero {
+                height: auto !important;
+                min-height: auto !important;
+                padding: 130px 20px 60px !important;
+                background: linear-gradient(160deg, #ffffff 0%, #fff8f4 40%, #ffe8d6 100%) !important;
+            }
+            #hero .hero-text {
+                max-width: 100% !important;
+                text-align: center !important;
+            }
+            #hero .hero-text h1 {
+                font-size: 34px !important;
+                margin-bottom: 20px !important;
+            }
+            #hero .hero-text p {
+                font-size: 16px !important;
+            }
+            #hero .hero-buttons {
+                justify-content: center !important;
+            }
+            #hero .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+                padding: 16px 30px !important;
+                font-size: 16px !important;
+            }
+        }
+
+        /* ===== JOB GRID: 3 columns on desktop ===== */
+        .job-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        @media (max-width: 1024px) {
+            .job-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .job-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo-link">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#jobs">Offene Stellen</a></li>
+                    <li><a href="#vorteile">Vorteile</a></li>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#bewerben">Bewerben</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Interactive Hero Reveal Section -->
+    <section id="hero-reveal" style="height: 190vh; position: relative;">
+        <div class="sticky-container" style="position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            
+            <!-- Hidden Background Content (Revealed on scroll) -->
+            <div id="reveal-content" style="width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+                <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
+                
+                <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
+                
+                <div style="display: flex; justify-content: center; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap; margin-bottom: 60px;">
+                    <img src="images/partner-nr.png" alt="NR International Management GmbH" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                    <img src="images/partner-telekom.jpg" alt="Telekom" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                    <img src="images/partner-eon.png" alt="E.ON" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                </div>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#jobs" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; border-radius: 4px; box-shadow: 0 4px 15px rgba(240, 103, 35, 0.4);">Offene Stellen ansehen</a>
+                </div>
+            </div>
+
+            <!-- The White Star Mask (Overlay) -->
+            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 250vmax; height: 250vmax; pointer-events: none; z-index: 5;" viewBox="0 0 1000 1000">
+                <path d="M0,0 H1000 V1000 H0 Z M500,350 L533,450 L638,450 L553,512 L585,612 L500,550 L415,612 L447,512 L362,450 L467,450 Z" fill="#ffffff" fill-rule="evenodd"/>
+            </svg>
+
+            <!-- Initial Intro Text on White Background -->
+            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; width: 100%;">
+                <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px; margin-top: 50px;">T-Star Promotion</h1>
+                <p style="color: #666; font-size: 18px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
+                <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
+            </div>
+
+            <!-- Small floating star logo (hollow and animated) -->
+            <div id="small-star" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
+                <div style="animation: floatShooting 5s ease-in-out infinite;">
+                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
+                        <defs>
+                            <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#FFD700" /> <!-- Yellow at top -->
+                                <stop offset="100%" stop-color="#F06723" /> <!-- Orange at bottom -->
+                            </linearGradient>
+                            <polygon id="star-shape" class="star-path" points="50,5 61,39 98,39 68,59 79,95 50,73 21,95 32,59 2,39 39,39" fill="none" stroke="url(#starGrad)" stroke-width="3" stroke-linejoin="round"/>
+                        </defs>
+                        <use href="#star-shape"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveal = document.getElementById('hero-reveal');
+            const svg = document.getElementById('star-mask-svg');
+            const intro = document.getElementById('intro-text');
+            const content = document.getElementById('reveal-content');
+            const smallStar = document.getElementById('small-star');
+            
+            if (!reveal || !svg || !intro || !content || !smallStar) return;
+
+            // Hardware acceleration hints to GPU
+            svg.style.willChange = 'transform';
+            intro.style.willChange = 'transform, opacity';
+            content.style.willChange = 'opacity';
+            smallStar.style.willChange = 'transform, opacity';
+
+            let ticking = false;
+
+            function updateAnimation() {
+                const rect = reveal.getBoundingClientRect();
+                const maxScroll = rect.height - window.innerHeight;
+                let progress = -rect.top / maxScroll;
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // Mask zooms in faster
+                const scale = 1 + Math.pow(progress, 1.8) * 150;
+                svg.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                
+                intro.style.opacity = Math.max(0, 1 - (progress * 3));
+                intro.style.transform = `translate(-50%, calc(-50% + ${progress * 50}px))`;
+                
+                // Text fades in LATER and SLOWER
+                if (progress > 0.18) {
+                    content.style.opacity = Math.min(1, (progress - 0.18) * 2.5);
+                } else {
+                    content.style.opacity = 0;
+                }
+
+                // Simple, elegant upwards flight:
+                const flyY = progress * -window.innerHeight * 0.9;
+                const flyScale = 1 + (progress * 2.5);
+                const flyRotate = progress * 90;
+                
+                const transformStr = `translate(-50%, calc(-50% + ${flyY}px)) scale(${flyScale}) rotate(${flyRotate}deg)`;
+                smallStar.style.transform = transformStr;
+                
+                const starOpacity = progress > 0.1 ? 1 - ((progress - 0.1) * 2.5) : 1; 
+                smallStar.style.opacity = Math.max(0, starOpacity);
+
+                ticking = false;
+            }
+
+            // Passive scroll listener with requestAnimationFrame for extreme fluidity
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateAnimation);
+                    ticking = true;
+                }
+            }, { passive: true });
+            
+            // Initial render
+            updateAnimation();
+        });
+    </script>
+    
+    <style>
+        .star-sparkle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 14;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease-out;
+        }
+        .ghost-star {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition-property: transform, opacity;
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, opacity;
+            pointer-events: none;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        @keyframes floatShooting {
+            0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 5px 10px rgba(240, 103, 35, 0.3)); }
+            50% { transform: translateY(-20px) rotate(15deg); filter: drop-shadow(0 15px 25px rgba(240, 103, 35, 0.7)); }
+        }
+        .star-path {
+            stroke-dasharray: 250;
+            stroke-dashoffset: 250;
+            animation: drawStar 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+        }
+        @keyframes drawStar {
+            0% { stroke-dashoffset: 250; }
+            100% { stroke-dashoffset: 0; }
+        }
+    </style>
+
+    <section id="jobs" class="jobs section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Offene Stellen</h2>
+                <p>Finde deine passende Position bei T-Star Promotion</p>
+            </div>
+            
+            <!-- Location Search Prompt (Elegant) -->
+            <div class="location-prompt" style="background: var(--light); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); text-align: center; max-width: 800px; margin: 0 auto 40px; border: 1px solid #eaeaea;">
+                <h3 style="font-size: 20px; margin-bottom: 8px; color: var(--dark);">📍 Finde Jobs in deiner Nähe</h3>
+                
+                <form action="alle-jobs.html" method="GET" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+                    <input type="text" name="ort" placeholder="Postleitzahl oder Stadt eingeben..." required style="flex: 1; min-width: 250px; padding: 12px 20px; border: 2px solid #ddd; border-radius: 30px; font-size: 16px; outline: none; transition: border-color 0.3s;">
+                    <button type="submit" class="btn btn-primary" style="padding: 12px 30px; border-radius: 30px; font-size: 16px; font-weight: bold; border: none; cursor: pointer;">Jobs suchen</button>
+                </form>
+                
+                <button type="button" id="btn-geolocate-home" style="margin-top: 15px; background: none; border: none; color: var(--primary); font-weight: 600; cursor: pointer; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;">
+                    <i class="fa-solid fa-location-crosshairs"></i> Meinen aktuellen Standort verwenden
+                </button>
+                <div id="geo-status-home" style="font-size: 12px; color: #666; margin-top: 5px; height: 15px;"></div>
+            </div>
+
+            <!-- Featured Jobs Grid -->
+            <div class="jobs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Job Card 1 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">Handelsvertreter (m/w/d) Glasfaser & Energie</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Bremen & Umgebung</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Selbständig / § 84 HGB</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Du bist kommunikativ, motiviert und suchst eine selbständige Tätigkeit im Außendienst? Werde Teil unseres Vertriebsteams!</p>
+                    <a href="jobs/handelsvertreter-glasfaser-und-energie-bremen-mitte.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+                
+                <!-- Job Card 2 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">Quereinsteiger im Vertrieb (m/w/d)</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Nordrhein-Westfalen</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Freie Mitarbeit</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Dein Neustart im Vertrieb! Wir schulen dich und bringen dir alles bei, was du für deinen Erfolg brauchst.</p>
+                    <a href="jobs/quereinsteiger-im-vertrieb-dortmund.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">Vertriebsmitarbeiter Strom & Gas (m/w/d)</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Aachen</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Selbständig / § 84 HGB</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Starte als selbständiger Handelsvertreter im Energiebereich und profitiere von unserem starken Netzwerk!</p>
+                    <a href="jobs/vertriebsmitarbeiter-strom-und-gas-aachen.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+
+                <!-- Job Card 4 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">PV-Lead-Generator (m/w/d)</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Bundesweit</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Freie Mitarbeit</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Du hast ein Gespür für Kunden? Qualifiziere Interessenten für Photovoltaik-Lösungen mit Top-Provisionen.</p>
+                    <a href="alle-jobs.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+
+                <!-- Job Card 5 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">Junior Handelsvertreter (m/w/d)</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Bremen & Umgebung</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Freie Mitarbeit / § 84 HGB</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Der perfekte Start! Als Junior Handelsvertreter baust du dir mit unserer Unterstützung dein eigenes Vertriebsnetzwerk auf.</p>
+                    <a href="alle-jobs.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+
+                <!-- Job Card 6 -->
+                <div class="job-card" style="background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--primary);">
+                    <h3 style="font-size: 18px; margin-bottom: 15px;">Quereinstieg im Vertrieb als Handelsvertreter</h3>
+                    <div class="job-meta" style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="display: block; margin-bottom: 5px;"><i class="fa-solid fa-map-pin" style="color: var(--primary); width: 20px;"></i> Nordrhein-Westfalen</span>
+                        <span style="display: block;"><i class="fa-solid fa-briefcase" style="color: var(--primary); width: 20px;"></i> Selbstständig</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Nutze deine Chance auf einen Neustart. Wir bieten dir eine erstklassige Ausbildung und Top-Provisionen von Tag eins an.</p>
+                    <a href="alle-jobs.html" class="btn btn-outline" style="padding: 8px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 20px; font-weight: 600;">Details ansehen</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="alle-jobs.html" class="btn btn-primary" style="padding: 15px 40px; border-radius: 30px; font-size: 16px; font-weight: bold; display: inline-block; box-shadow: 0 4px 15px rgba(240, 103, 35, 0.4);">Alle Stellenangebote deutschlandweit ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Vorteile Section -->
+    <section id="vorteile" class="vorteile section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Warum T-Star Promotion?</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fa-solid fa-rocket benefit-icon"></i>
+                    <h3>Schneller Einstieg</h3>
+                    <p>Sofortiger Start möglich – auch ohne Vorerfahrung im Vertrieb.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-money-bill-wave benefit-icon"></i>
+                    <h3>Attraktive Provisionen</h3>
+                    <p>Überdurchschnittliche Vergütung auf Provisionsbasis. Dein Einsatz bestimmt dein Einkommen.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-graduation-cap benefit-icon"></i>
+                    <h3>Umfassende Schulungen</h3>
+                    <p>Wir machen dich fit! Intensive Einarbeitung und regelmäßige Weiterbildungen.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-handshake benefit-icon"></i>
+                    <h3>Starkes Team</h3>
+                    <p>Arbeite in einem motivierten Team mit flachen Hierarchien und echtem Zusammenhalt.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-map-marker-alt benefit-icon"></i>
+                    <h3>Flexible Standorte</h3>
+                    <p>Arbeite in Bremen oder NRW – du wählst deinen Einsatzort.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-chart-line benefit-icon"></i>
+                    <h3>Karrierechancen</h3>
+                    <p>Vom Quereinsteiger zum Teamleiter – bei uns hast du echte Aufstiegsmöglichkeiten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Leistungen Section -->
+    <section id="leistungen" class="leistungen section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Vertriebsbereiche</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-box">
+                    <i class="fa-solid fa-door-open service-icon"></i>
+                    <h3>Door-to-Door-Vertrieb mit System - Glasfaservertrieb</h3>
+                    <p>Vor-Ort-Beratung, Vertragsabschlüsse, Kundenbindung</p>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-bolt service-icon"></i>
+                    <h3>Strom- & Gasvertrieb</h3>
+                    <p>Tarifberatung, Wechselservice, Full-Service-Vertrieb</p>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-magnet service-icon"></i>
+                    <h3>Leadgenerierung & Abschlussstärke</h3>
+                    <p>Qualifizierte Leads für PV-Anbieter durch gezielte Kundenansprache</p>
+                </div>
+                <div class="service-box">
+                    <i class="fa-solid fa-users service-icon"></i>
+                    <h3>Flexibles Vertriebsteam mit Erfahrung</h3>
+                    <p>Motiviert, geschult, deutschlandweit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geschäftsführung Section -->
+    <section id="team" class="team section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Die Geschäftsführung</h2>
+                <p>Dein direkter Draht zur Unternehmensleitung von T-Star Promotion</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team-nadia.jpg" alt="Nadia Auffarth - Inhaberin & Geschäftsführerin">
+                    <div class="team-member-info">
+                        <h3>Nadia Auffarth</h3>
+                        <p>Inhaberin & Geschäftsführung</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/team-tarik.jpg" alt="Tarik Rasani - Geschäftsführung">
+                    <div class="team-member-info">
+                        <h3>Tarik Rasani</h3>
+                        <p>Geschäftsführung</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Bewerbungsformular Section -->
+    <section id="bewerben" class="bewerben section">
+        <div class="container">
+            <div class="section-header light">
+                <h2>Jetzt Bewerben</h2>
+                <p>Starte deine Karriere bei T-Star Promotion – wir freuen uns auf dich!</p>
+            </div>
+            
+            <div class="apply-form-container">
+                <form class="apply-form" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vorname">Vorname *</label>
+                            <input type="text" id="vorname" name="vorname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nachname">Nachname *</label>
+                            <input type="text" id="nachname" name="nachname" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefon">Telefon *</label>
+                            <input type="tel" id="telefon" name="telefon" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="standort">Bevorzugter Standort *</label>
+                            <select id="standort" name="standort" required>
+                                <option value="" disabled selected>Bitte wählen</option>
+                                <option value="Bremen">Bremen</option>
+                                <option value="NRW">NRW</option>
+                                <option value="Flexibel">Flexibel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Gewünschte Position *</label>
+                            <select id="position" name="position" required>
+                                <option value="" disabled selected>Bitte wählen</option>
+                                <option value="Handelsvertreter">Handelsvertreter</option>
+                                <option value="Quereinsteiger im Vertrieb">Quereinsteiger im Vertrieb</option>
+                                <option value="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lebenslauf">Lebenslauf (optional)</label>
+                            <input type="file" id="lebenslauf" name="lebenslauf" accept=".pdf,.doc,.docx" style="padding-top: 10px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="vorerfahrung">Vorerfahrung im Vertrieb? *</label>
+                            <select id="vorerfahrung" name="vorerfahrung" required onchange="toggleExperienceField(this.value)">
+                                <option value="" disabled selected>Bitte wählen</option>
+                                <option value="Ja">Ja</option>
+                                <option value="Nein">Nein</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width" id="erfahrung-details-group" style="display: none;">
+                        <label for="erfahrung_details">Welche Vorerfahrung? *</label>
+                        <input type="text" id="erfahrung_details" name="erfahrung_details" placeholder="Z.B. Door-to-Door, B2B, Promotion...">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="nachricht">Nachricht (optional)</label>
+                        <textarea id="nachricht" name="nachricht" rows="4" placeholder="Möchtest du uns noch etwas mitteilen?"></textarea>
+                    </div>
+
+                    <script>
+                        function toggleExperienceField(val) {
+                            const detailsGroup = document.getElementById('erfahrung-details-group');
+                            const detailsInput = document.getElementById('erfahrung_details');
+                            if (val === 'Ja') {
+                                detailsGroup.style.display = 'block';
+                                detailsInput.setAttribute('required', 'required');
+                            } else {
+                                detailsGroup.style.display = 'none';
+                                detailsInput.removeAttribute('required');
+                                detailsInput.value = '';
+                            }
+                        }
+                    </script>
+                    
+                    <div class="form-group checkbox-group full-width">
+                        <label>
+                            <input type="checkbox" name="datenschutz" required>
+                            Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu. *
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <a href="https://wa.me/4917680482058?text=Hallo%2C%20ich%20m%C3%B6chte%20mich%20schnell%20bewerben!" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; width: 100%; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i>
+                            Schnell bewerben per WhatsApp
+                        </a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Bewerbung absenden
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Kontakt Section -->
+    <section id="kontakt" class="kontakt section" style="background-color: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontakt</h2>
+                <p>Hast du Fragen? Wir sind gerne für dich da.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>N.R. International Management GmbH</h3>
+                    <p>Inhaberin: Nadia Auffarth MBA</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Bahnhofstraße 15, 28790 Schwanewede</p>
+                    <p><i class="fa-solid fa-phone"></i> +49 151 55767740</p>
+                    <p><i class="fa-solid fa-phone"></i> +49 176 80482058</p>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:Info@t-starpromotion.de">Info@t-starpromotion.de</a></p>
+                </div>
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2389.040778643564!2d8.620573977341566!3d53.22637257227653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b0e8b2ed3c8cc3%3A0x6b63d9178cb3d75c!2sBahnhofstra%C3%9Fe%2015%2C%2028790%20Schwanewede!5e0!3m2!1sde!2sde!4v1709230000000!5m2!1sde!2sde" width="100%" height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo-white.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </div>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="karriere.html">Karriere</a>
+            </div>
+            <div class="footer-contact">
+                <a href="tel:+4915155767740">+49 151 55767740</a> | 
+                <a href="mailto:Info@t-starpromotion.de">Info@t-starpromotion.de</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 T-Star Promotion | N.R. International Management GmbH. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. Floating elements -->
+    <div class="fab-container" style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999;">
+        <a href="https://wa.me/4917680482058" class="fab whatsapp-fab" target="_blank" rel="noopener noreferrer" style="background-color: #25D366; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: #FFFFFF; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <i class="fa-brands fa-whatsapp" style="font-size: 24px;"></i>
+        </a>
+        <a href="mailto:Info@t-starpromotion.de" class="fab email-fab" style="background-color: #F06723; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: #FFFFFF; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <i class="fa-solid fa-envelope" style="font-size: 24px;"></i>
+        </a>
+    </div>
+
+    <button class="scroll-top" aria-label="Nach oben scrollen" style="position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; background-color: #1A1A1A; color: #FFFFFF; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 999;">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script>
+        document.getElementById('btn-geolocate-home')?.addEventListener('click', () => {
+            const status = document.getElementById('geo-status-home');
+            
+            if (!navigator.geolocation) {
+                status.textContent = 'Standortzugriff wird von deinem Browser nicht unterstützt.';
+                return;
+            }
+
+            status.textContent = 'Standort wird ermittelt...';
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    try {
+                        const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=de`);
+                        const data = await res.json();
+                        const city = data.city || data.locality;
+                        if (city) {
+                            window.location.href = `alle-jobs.html?ort=${encodeURIComponent(city)}`;
+                        } else {
+                            status.textContent = 'Standort konnte nicht genau ermittelt werden. Bitte manuell eingeben.';
+                        }
+                    } catch (e) {
+                        status.textContent = 'Fehler bei der Standortermittlung.';
+                    }
+                },
+                (error) => {
+                    status.textContent = 'Standortzugriff verweigert oder fehlgeschlagen.';
+                }
+            );
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+module.exports = [
+  // Bremen & Umgebung (HB/NI)
+  { name: "Bremen-Mitte", plz: "28195", region: "HB" },
+  { name: "Bremen-Nord", plz: "28757", region: "HB" },
+  { name: "Bremen-Ost", plz: "28205", region: "HB" },
+  { name: "Bremen-Neustadt", plz: "28199", region: "HB" },
+  { name: "Bremen-Huchting", plz: "28259", region: "HB" },
+  { name: "Bremerhaven", plz: "27568", region: "HB" },
+  { name: "Schwanewede", plz: "28790", region: "NI" },
+  { name: "Delmenhorst", plz: "27749", region: "NI" },
+  { name: "Verden", plz: "27283", region: "NI" },
+  { name: "Achim", plz: "28832", region: "NI" },
+  { name: "Osterholz-Scharmbeck", plz: "27711", region: "NI" },
+  { name: "Lilienthal", plz: "28865", region: "NI" },
+  { name: "Stuhr", plz: "28816", region: "NI" },
+  { name: "Weyhe", plz: "28844", region: "NI" },
+
+  // NRW - Ruhrgebiet
+  { name: "Dortmund", plz: "44137", region: "NW" },
+  { name: "Essen", plz: "45127", region: "NW" },
+  { name: "Duisburg", plz: "47051", region: "NW" },
+  { name: "Bochum", plz: "44787", region: "NW" },
+  { name: "Gelsenkirchen", plz: "45879", region: "NW" },
+  { name: "Oberhausen", plz: "46045", region: "NW" },
+  { name: "Mülheim an der Ruhr", plz: "45468", region: "NW" },
+  { name: "Herne", plz: "44623", region: "NW" },
+  { name: "Bottrop", plz: "46236", region: "NW" },
+  { name: "Castrop-Rauxel", plz: "44575", region: "NW" },
+  { name: "Recklinghausen", plz: "45657", region: "NW" },
+  { name: "Unna", plz: "59423", region: "NW" },
+  { name: "Lünen", plz: "44532", region: "NW" },
+  { name: "Hagen", plz: "58095", region: "NW" },
+  { name: "Witten", plz: "58452", region: "NW" },
+
+  // NRW - Düsseldorf & Umgebung
+  { name: "Düsseldorf", plz: "40210", region: "NW" },
+  { name: "Neuss", plz: "41460", region: "NW" },
+  { name: "Ratingen", plz: "40878", region: "NW" },
+  { name: "Mönchengladbach", plz: "41061", region: "NW" },
+  { name: "Krefeld", plz: "47798", region: "NW" },
+  { name: "Wuppertal", plz: "42103", region: "NW" },
+  { name: "Solingen", plz: "42651", region: "NW" },
+  { name: "Remscheid", plz: "42853", region: "NW" },
+
+  // NRW - Köln & Umgebung
+  { name: "Köln", plz: "50667", region: "NW" },
+  { name: "Leverkusen", plz: "51373", region: "NW" },
+  { name: "Bergisch Gladbach", plz: "51465", region: "NW" },
+  { name: "Bonn", plz: "53111", region: "NW" },
+  { name: "Troisdorf", plz: "53840", region: "NW" },
+  { name: "Siegburg", plz: "53721", region: "NW" },
+  { name: "Brühl", plz: "50321", region: "NW" },
+  { name: "Hürth", plz: "50354", region: "NW" },
+
+  // NRW - OWL & Münster
+  { name: "Bielefeld", plz: "33602", region: "NW" },
+  { name: "Münster", plz: "48143", region: "NW" },
+  { name: "Paderborn", plz: "33098", region: "NW" },
+  { name: "Gütersloh", plz: "33330", region: "NW" },
+  { name: "Herford", plz: "32049", region: "NW" },
+  { name: "Minden", plz: "32423", region: "NW" },
+  { name: "Detmold", plz: "32756", region: "NW" },
+  { name: "Hamm", plz: "59065", region: "NW" },
+  { name: "Siegen", plz: "57072", region: "NW" },
+  { name: "Aachen", plz: "52062", region: "NW" }
+];

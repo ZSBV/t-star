@@ -1,0 +1,37 @@
+    <!-- 8. Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo-white.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </div>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="karriere.html">Karriere</a>
+            </div>
+            <div class="footer-contact">
+                <a href="tel:+4915155767740">+49 151 55767740</a> | 
+                <a href="mailto:Info@t-starpromotion.de">Info@t-starpromotion.de</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 T-Star Promotion | N.R. International Management GmbH. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. Floating elements -->
+    <div class="fab-container" style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999;">
+        <a href="https://wa.me/4917680482058" class="fab whatsapp-fab" target="_blank" rel="noopener noreferrer" style="background-color: #25D366; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <i class="fa-brands fa-whatsapp" style="font-size: 24px;"></i>
+        </a>
+        <a href="mailto:Info@t-starpromotion.de" class="fab email-fab" style="background-color: #F06723; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <i class="fa-solid fa-envelope" style="font-size: 24px;"></i>
+        </a>
+    </div>
+
+    <button class="scroll-top" aria-label="Nach oben scrollen" style="position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; background-color: #1A1A1A; color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 999;">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+</body>
+</html>
