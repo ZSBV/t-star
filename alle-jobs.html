@@ -3671,7 +3671,20 @@
                 });
 
                 if (visibleCount === 0) {
-                    noResults.style.display = 'block';
+                    // If no jobs found for their location, show all jobs instead of an empty page!
+                    cityGroups.forEach(group => group.style.display = 'block');
+                    if (ortParam && term === ortParam.toLowerCase()) {
+                        noResults.innerHTML = `Wir haben aktuell keine direkten Stellen in <b>${ortParam}</b> gefunden. Hier sind alle unsere verfügbaren Standorte:`;
+                        noResults.style.display = 'block';
+                        noResults.style.color = '#666';
+                        noResults.style.backgroundColor = '#fff3ec';
+                        noResults.style.padding = '15px';
+                        noResults.style.borderRadius = '8px';
+                        noResults.style.marginBottom = '30px';
+                        noResults.style.borderLeft = '4px solid var(--primary)';
+                    } else {
+                        noResults.style.display = 'block';
+                    }
                 } else {
                     noResults.style.display = 'none';
                 }
@@ -3679,12 +3692,37 @@
 
             // Listen for typing
             searchInput.addEventListener('input', function(e) {
+                // Reset no results styling for manual search
+                noResults.style.color = 'var(--primary)';
+                noResults.style.backgroundColor = 'transparent';
+                noResults.style.padding = '0';
+                noResults.style.borderLeft = 'none';
+                noResults.innerHTML = 'Keine passenden Standorte gefunden. Bitte versuche einen anderen Suchbegriff.';
                 filterJobs(e.target.value);
             });
 
             // Check URL parameters for automatic filtering
             const urlParams = new URLSearchParams(window.location.search);
             const ortParam = urlParams.get('ort');
+            
+            // Ask for location on page load if they haven't been asked yet
+            if (!ortParam && "geolocation" in navigator && !sessionStorage.getItem('locationAsked')) {
+                sessionStorage.setItem('locationAsked', 'true');
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=de`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const city = data.city || data.locality || "";
+                            if(city) {
+                                // Redirect to self with city parameter
+                                window.location.href = "alle-jobs.html?ort=" + encodeURIComponent(city);
+                            }
+                        }).catch(() => {});
+                }, function() {}, { timeout: 5000 });
+            }
+
             if (ortParam) {
                 searchInput.value = ortParam;
                 filterJobs(ortParam);

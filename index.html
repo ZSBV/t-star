@@ -727,6 +727,12 @@
 
     <script>
         function requestLocationAndRedirect(btn) {
+            const cachedCity = sessionStorage.getItem('userCity');
+            if (cachedCity) {
+                window.location.href = "alle-jobs.html?ort=" + encodeURIComponent(cachedCity);
+                return;
+            }
+
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Standort wird ermittelt...';
             btn.style.pointerEvents = 'none';

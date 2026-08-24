@@ -25,14 +25,16 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- RESET & GLOBAL --- */
-* {
+/* --- GLOBAL RESET & BASE --- */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-html {
+html, body {
+    width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
@@ -43,6 +45,7 @@ body {
     background-color: var(--light);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
