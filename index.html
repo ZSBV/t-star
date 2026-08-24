@@ -232,8 +232,9 @@
             const intro = document.getElementById('intro-text');
             const content = document.getElementById('reveal-content');
             const smallStar = document.getElementById('small-star');
+            const stickyContainer = reveal.querySelector('.sticky-container');
             
-            if (!reveal || !svg || !intro || !content || !smallStar) return;
+            if (!reveal || !svg || !intro || !content || !smallStar || !stickyContainer) return;
 
             // Hardware acceleration hints to GPU
             svg.style.willChange = 'transform, opacity';
@@ -241,14 +242,23 @@
             content.style.willChange = 'opacity';
             
             let ticking = false;
+
+            // iOS Safari vh Bug Fix: Force fixed pixel heights instead of vh
+            // We want the scroll area to be 2.5x the window height
+            function setHeights() {
+                const winH = window.innerHeight;
+                reveal.style.height = (winH * 2.5) + 'px';
+                stickyContainer.style.height = winH + 'px';
+                return winH;
+            }
+            let cachedWinHeight = setHeights();
             let cachedHeight = reveal.getBoundingClientRect().height;
-            let cachedWinHeight = window.innerHeight;
             let maxScroll = cachedHeight - cachedWinHeight;
 
             // Update cached dimensions only on resize, not on scroll
             window.addEventListener('resize', () => {
+                cachedWinHeight = setHeights();
                 cachedHeight = reveal.getBoundingClientRect().height;
-                cachedWinHeight = window.innerHeight;
                 maxScroll = cachedHeight - cachedWinHeight;
                 if (!ticking) {
                     window.requestAnimationFrame(updateAnimation);
