@@ -175,11 +175,11 @@
     </header>
 
     <!-- 2. Interactive Hero Reveal Section -->
-    <section id="hero-reveal" style="height: 270vh; position: relative;">
+    <section id="hero-reveal" style="height: 190vh; position: relative;">
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
                 <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
                 
                 <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
@@ -287,19 +287,19 @@
                 smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 220}px)) scale(${1 + progress * 0.4})`;
                 smallStar.style.opacity = introFade;
 
-                // === PHASE 2 (0.25 → 0.75): Partners fully visible, long display window ===
-                // === PHASE 3 (0.75 → 1.0): Partners fade out ===
+                // === PHASE 2 (0.25 → 0.65): Partners fully visible, long display window ===
+                // === PHASE 3 (0.65 → 1.0): Partners fade out ===
                 if (progress < 0.25) {
                     content.style.opacity = 0;
                 } else if (progress < 0.45) {
                     // Fade in quickly
                     content.style.opacity = Math.min(1, (progress - 0.25) / 0.2);
-                } else if (progress < 0.75) {
+                } else if (progress < 0.65) {
                     // Stay fully visible - user can read everything comfortably
                     content.style.opacity = 1;
                 } else {
-                    // Fade out toward next section
-                    content.style.opacity = Math.max(0, 1 - (progress - 0.75) / 0.25);
+                    // Fade out toward next section rapidly to cut out white space
+                    content.style.opacity = Math.max(0, 1 - (progress - 0.65) / 0.2);
                 }
 
                 ticking = false;
@@ -359,7 +359,7 @@
         }
     </style>
 
-    <section id="jobs" class="jobs section">
+    <section id="jobs" class="jobs section" style="margin-top: -15vh; position: relative; z-index: 20;">
         <div class="container">
             <div class="section-header">
                 <h2>Offene Stellen</h2>
