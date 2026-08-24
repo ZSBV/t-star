@@ -508,8 +508,8 @@ function generateHtmlSitemap(jobs) {
             const cityGroups = document.querySelectorAll('.city-group');
             const noResults = document.getElementById('no-results');
 
-            searchInput.addEventListener('input', function(e) {
-                const term = e.target.value.toLowerCase().trim();
+            function filterJobs(term) {
+                term = term.toLowerCase().trim();
                 let visibleCount = 0;
 
                 cityGroups.forEach(group => {
@@ -529,7 +529,20 @@ function generateHtmlSitemap(jobs) {
                 } else {
                     noResults.style.display = 'none';
                 }
+            }
+
+            // Listen for typing
+            searchInput.addEventListener('input', function(e) {
+                filterJobs(e.target.value);
             });
+
+            // Check URL parameters for automatic filtering
+            const urlParams = new URLSearchParams(window.location.search);
+            const ortParam = urlParams.get('ort');
+            if (ortParam) {
+                searchInput.value = ortParam;
+                filterJobs(ortParam);
+            }
         });
     </script>
     <footer class="site-footer">
