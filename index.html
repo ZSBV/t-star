@@ -211,14 +211,14 @@
             <!-- Small floating star logo (hollow and animated) -->
             <div id="small-star" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
                 <div style="animation: floatShooting 5s ease-in-out infinite;">
-                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
+                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible; filter: drop-shadow(0 0 8px rgba(240, 103, 35, 0.4));">
                         <defs>
                             <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stop-color="#FFD700" /> <!-- Yellow at top -->
                                 <stop offset="100%" stop-color="#F06723" /> <!-- Orange at bottom -->
                             </linearGradient>
                         </defs>
-                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="4" stroke-linejoin="round" style="stroke-dasharray: 400; stroke-dashoffset: 0; animation: drawStar 3s ease-out forwards;"/>
+                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;"/>
                     </svg>
                 </div>
             </div>
@@ -350,6 +350,11 @@
         @keyframes drawStar {
             0% { stroke-dashoffset: 250; }
             100% { stroke-dashoffset: 0; }
+        }
+        @keyframes drawStarElegant {
+            0% { stroke-dashoffset: 100; opacity: 0; }
+            10% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
         }
     </style>
 
