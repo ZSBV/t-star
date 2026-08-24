@@ -179,7 +179,7 @@
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="width: 100%; max-width: 1200px; padding: 0 20px; margin-top: 150px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <div id="reveal-content" style="width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
                 <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
                 
                 <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
@@ -280,19 +280,19 @@
                 // Fade out earlier (at 0.3) so the hole doesn't have to exceed the screen width
                 svg.style.opacity = progress > 0.3 ? Math.max(0, 1 - ((progress - 0.3) * 2.5)) : 1;
                 
-                // Intro text fades out smoothly staying perfectly centered
+                // Text "T-Star Promotion" fades out and moves DOWN (as requested)
                 intro.style.opacity = Math.max(0, 1 - (progress * 4));
-                intro.style.transform = `translate(-50%, -50%)`;
+                intro.style.transform = `translate(-50%, calc(-50% + ${progress * 100}px))`;
                 
-                // Reveal text fades in seamlessly just as intro disappears (no overlap)
-                if (progress > 0.25) {
-                    content.style.opacity = Math.min(1, (progress - 0.25) * 4);
+                // Reveal text fades in AFTER intro text is gone to prevent overlap
+                if (progress > 0.3) {
+                    content.style.opacity = Math.min(1, (progress - 0.3) * 3);
                 } else {
                     content.style.opacity = 0;
                 }
 
-                // Small star stays completely static in the middle and fades out smoothly with the text
-                smallStar.style.transform = `translate(-50%, -50%)`;
+                // Small star flies UP and fades out (as requested)
+                smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 150}px)) scale(${1 + progress})`;
                 smallStar.style.opacity = Math.max(0, 1 - (progress * 4));
 
                 ticking = false;
