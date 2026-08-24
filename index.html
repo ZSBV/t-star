@@ -175,11 +175,11 @@
     </header>
 
     <!-- 2. Interactive Hero Reveal Section -->
-    <section id="hero-reveal" style="height: 230vh; position: relative;">
+    <section id="hero-reveal" style="height: 270vh; position: relative;">
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="width: 100%; max-width: 1200px; padding: 0 20px; margin-top: 38vh; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <div id="reveal-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
                 <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
                 
                 <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
@@ -273,27 +273,33 @@
                 let progress = -reveal.getBoundingClientRect().top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // --- INTRO PHASE (progress 0 -> 0.3): Star rises, T-Star fades down ---
-                
-                // Star mask zooms just slightly then fades cleanly
+                // === PHASE 1 (0 → 0.25): Intro exits - star up, text down ===
+                const introFade = Math.max(0, 1 - progress / 0.25);
+                intro.style.opacity = introFade;
+                intro.style.transform = `translate(-50%, calc(-50% + ${progress * 80}px))`;
+
+                // Star mask fades as it zooms
                 const scale = 1 + Math.pow(progress, 1.5) * 10;
                 svg.style.transform = `translate(-50%, -50%) scale(${scale})`;
-                svg.style.opacity = progress > 0.25 ? Math.max(0, 1 - ((progress - 0.25) * 4)) : 1;
-                
-                // T-Star Promotion fades out and slides down
-                intro.style.opacity = Math.max(0, 1 - (progress * 6));
-                intro.style.transform = `translate(-50%, calc(-50% + ${progress * 80}px))`;
-                
-                // Small star flies up and fades out
-                smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 200}px)) scale(${1 + progress * 0.5})`;
-                smallStar.style.opacity = Math.max(0, 1 - (progress * 6));
-                
-                // --- REVEAL PHASE (progress 0.3 -> 1.0): Partners visible and stay centered ---
-                // Content fades in quickly at 30% scroll, then stays fully visible
-                if (progress > 0.3) {
-                    content.style.opacity = Math.min(1, (progress - 0.3) * 5);
-                } else {
+                svg.style.opacity = Math.max(0, 1 - progress / 0.2);
+
+                // Small star flies upward
+                smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 220}px)) scale(${1 + progress * 0.4})`;
+                smallStar.style.opacity = introFade;
+
+                // === PHASE 2 (0.25 → 0.75): Partners fully visible, long display window ===
+                // === PHASE 3 (0.75 → 1.0): Partners fade out ===
+                if (progress < 0.25) {
                     content.style.opacity = 0;
+                } else if (progress < 0.45) {
+                    // Fade in quickly
+                    content.style.opacity = Math.min(1, (progress - 0.25) / 0.2);
+                } else if (progress < 0.75) {
+                    // Stay fully visible - user can read everything comfortably
+                    content.style.opacity = 1;
+                } else {
+                    // Fade out toward next section
+                    content.style.opacity = Math.max(0, 1 - (progress - 0.75) / 0.25);
                 }
 
                 ticking = false;
