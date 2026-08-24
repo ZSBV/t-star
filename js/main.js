@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
             
             // Toggle hamburger icon animation
-            
             const icon = navToggle.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('fa-xmark');
                 icon.classList.add('fa-bars');
             }
-);
+        });
     }
 
     // Close mobile nav when clicking a link
@@ -28,15 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (navMenu && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 
-            const icon = navToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
+                const icon = navToggle.querySelector('i');
                 icon.classList.remove('fa-xmark');
                 icon.classList.add('fa-bars');
             }
-);
+        });
     });
 
     // 2. Header Shadow on Scroll
