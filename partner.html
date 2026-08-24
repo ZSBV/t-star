@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Star Promotion | Karriere im Vertrieb – Jetzt bewerben!</title>
+    <title>Partner werden | T-Star Promotion - Starker Vertrieb</title>
     
     <!-- SEO & Meta Tags -->
     <meta name="description" content="T-Star Promotion – Dein Neustart im Vertrieb. Glasfaser, Strom, Gas & PV-Leads. Werde jetzt Handelsvertreter oder Quereinsteiger in Bremen & NRW.">
@@ -80,6 +80,219 @@
     <!-- CSS & JS -->
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+
+    <style>
+        /* ===== HERO RESPONSIVE ===== */
+        
+        /* Desktop: Full-screen background image */
+        .hero-desktop-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('images/hero-final-bg.jpg') center right / cover no-repeat;
+            z-index: 0;
+        }
+        
+        /* Mobile star image: hidden on desktop */
+        .hero-mobile-star {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            /* On mobile: hide the background, show clean gradient */
+            .hero-desktop-bg {
+                display: none;
+            }
+            .hero-mobile-star {
+                display: none;
+            }
+            #hero {
+                height: auto !important;
+                min-height: auto !important;
+                padding: 130px 20px 60px !important;
+                background: linear-gradient(160deg, #ffffff 0%, #fff8f4 40%, #ffe8d6 100%) !important;
+            }
+            #hero .hero-text {
+                max-width: 100% !important;
+                text-align: center !important;
+            }
+            #hero .hero-text h1 {
+                font-size: 34px !important;
+                margin-bottom: 20px !important;
+            }
+            #hero .hero-text p {
+                font-size: 16px !important;
+            }
+            #hero .hero-buttons {
+                justify-content: center !important;
+            }
+            #hero .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+                padding: 16px 30px !important;
+                font-size: 16px !important;
+            }
+        }
+
+        /* ===== JOB GRID: 3 columns on desktop ===== */
+        .job-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        @media (max-width: 1024px) {
+            .job-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .job-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo-link">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#jobs">Offene Stellen</a></li>
+                    <li><a href="#vorteile">Vorteile</a></li>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#bewerben">Bewerben</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Partner Hero -->
+    <section class="partner-hero" style="padding: 160px 5% 80px; background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%); color: var(--white); text-align: center;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <h1 style="font-size: clamp(36px, 5vw, 60px); font-weight: 900; margin-bottom: 20px;">Starker Vertrieb <br><span style="color: var(--primary);">für starke Partner</span></h1>
+            <p style="font-size: clamp(18px, 3vw, 22px); font-weight: 500; color: #ccc; margin-bottom: 40px; line-height: 1.6;">Wir bringen Produkte direkt zum Kunden – persönlich, transparent und effizient!</p>
+            <a href="#partner-kontakt" class="btn btn-primary" style="padding: 16px 40px; font-size: 18px; border-radius: 30px;"><i class="fa-solid fa-handshake"></i> Jetzt Partner werden</a>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission section" style="padding: 80px 5%; background: var(--white);">
+        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 25px; color: var(--dark);">Unsere Mission</h2>
+            <div style="width: 60px; height: 4px; background: var(--primary); margin: 0 auto 30px;"></div>
+            <p style="font-size: 18px; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                <strong>Nachhaltige Kundenbindung durch kompetente Beratung und starke Präsenz vor Ort.</strong><br>
+                Sie suchen einen erfahrenen Vertriebspartner, der Ihre Produkte professionell und kundenorientiert vermarktet?
+            </p>
+            <p style="font-size: 18px; line-height: 1.8; color: #555;">
+                T-star Promotion ist spezialisiert auf den Door-to-Door-Vertrieb von Energie- und Telekommunikationsprodukten sowie auf die qualifizierte Leadgenerierung im Bereich Photovoltaik. Als Partner von u.a. E.ON und der Deutschen Telekom sind wir täglich im Einsatz für moderne Energie.
+            </p>
+        </div>
+    </section>
+
+    <!-- Warum T-Star -->
+    <section class="why-us section" style="padding: 80px 5%; background: var(--gray-bg);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 32px; font-weight: 800; color: var(--dark);">Warum T-Star Promotion?</h2>
+            </div>
+            
+            <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="benefit-card" style="background: var(--white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-bottom: 4px solid var(--primary);">
+                    <i class="fa-solid fa-people-group" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Direktvertrieb mit Erfahrung</h3>
+                </div>
+                <div class="benefit-card" style="background: var(--white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-bottom: 4px solid var(--primary);">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Top geschultes Team</h3>
+                    <p style="color: #666;">Bundesweit im Einsatz</p>
+                </div>
+                <div class="benefit-card" style="background: var(--white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-bottom: 4px solid var(--primary);">
+                    <i class="fa-solid fa-handshake-angle" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Maximale Abschlussquote</h3>
+                    <p style="color: #666;">Echte Kundenbindung</p>
+                </div>
+                <div class="benefit-card" style="background: var(--white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-bottom: 4px solid var(--primary);">
+                    <i class="fa-solid fa-solar-panel" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Effiziente Leadgenerierung</h3>
+                    <p style="color: #666;">Im Bereich Photovoltaik</p>
+                </div>
+                <div class="benefit-card" style="background: var(--white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-bottom: 4px solid var(--primary);">
+                    <i class="fa-solid fa-bolt" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 15px;">Starke Partnerschaften</h3>
+                    <p style="color: #666;">Mit namhaften Energieversorgern</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Contact Form -->
+    <section id="partner-kontakt" class="section" style="padding: 80px 5%; background: var(--white);">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 32px; font-weight: 800; color: var(--dark);">Lassen Sie uns sprechen</h2>
+                <p style="font-size: 16px; color: #666;">Wir bitten Sie, das Formular vollständig auszufüllen. Eine zeitnahe Rückmeldung erfolgt unsererseits umgehend.</p>
+            </div>
+            
+            <form action="/" method="POST" data-netlify="true" name="Partner_Anfrage" style="background: var(--gray-bg); padding: 40px; border-radius: 16px; box-shadow: var(--shadow-md);">
+                <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Vorname / Nachname *</label>
+                        <input type="text" name="name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">E-Mail *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Telefon</label>
+                        <input type="tel" name="telefon" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Betreff *</label>
+                        <input type="text" name="betreff" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;">
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Nachricht *</label>
+                    <textarea name="nachricht" required rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700;">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+<footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="https://t-starpromotion.de/wp-content/uploads/2025/06/logo-white.png" alt="T-Star Promotion Logo" style="width: 160px; max-width: 100%;">
+            </div>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="karriere.html">Karriere</a>
+            </div>
+            <div class="footer-contact">
+                <a href="tel:+4915155767740">+49 151 55767740</a> | 
+                <a href="mailto:Info@t-starpromotion.de">Info@t-starpromotion.de</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 T-Star Promotion | N.R. International Management GmbH. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+<script src="js/main.js" defer></script>
 
     <style>
         /* ===== HERO RESPONSIVE ===== */
@@ -767,4 +980,3 @@
         }
     </script>
 </body>
-</html>
