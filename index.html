@@ -203,13 +203,13 @@
 
             <!-- Initial Intro Text on White Background -->
             <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; width: 100%;">
-                <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px; margin-top: 50px;">T-Star Promotion</h1>
+                <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px;">T-Star Promotion</h1>
                 <p style="color: #666; font-size: 18px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
                 <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
             </div>
 
             <!-- Small floating star logo (hollow and animated) -->
-            <div id="small-star" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
+            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
                 <!-- 7s float makes it out of sync with the 5s draw, creating a very organic, non-static feel -->
                 <div style="animation: floatShooting 7s ease-in-out infinite;">
                     <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
@@ -249,7 +249,8 @@
             // iOS Safari vh Bug Fix: Force fixed pixel heights instead of vh
             function setHeights() {
                 const winH = window.innerHeight;
-                reveal.style.height = (winH * 2.5) + 'px';
+                // Reduced scroll distance from 2.5x to 1.6x so you don't have to scroll as much
+                reveal.style.height = (winH * 1.6) + 'px';
                 stickyContainer.style.height = winH + 'px';
                 return winH;
             }
