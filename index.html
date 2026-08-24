@@ -249,8 +249,8 @@
             // iOS Safari vh Bug Fix: Force fixed pixel heights instead of vh
             function setHeights() {
                 const winH = window.innerHeight;
-                // Balanced scroll distance to 2.0x so scrolling back up isn't too abrupt
-                reveal.style.height = (winH * 2.0) + 'px';
+                // Shorter scroll distance so the next section appears faster
+                reveal.style.height = (winH * 1.6) + 'px';
                 stickyContainer.style.height = winH + 'px';
                 return winH;
             }
