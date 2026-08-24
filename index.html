@@ -287,19 +287,15 @@
                 smallStar.style.transform = `translate(-50%, calc(-50% - ${progress * 220}px)) scale(${1 + progress * 0.4})`;
                 smallStar.style.opacity = introFade;
 
-                // === PHASE 2 (0.25 → 0.65): Partners fully visible, long display window ===
-                // === PHASE 3 (0.65 → 1.0): Partners fade out ===
+                // === PHASE 2 (0.25 → 1.0): Partners fade in and STAY visible ===
                 if (progress < 0.25) {
                     content.style.opacity = 0;
                 } else if (progress < 0.45) {
                     // Fade in quickly
                     content.style.opacity = Math.min(1, (progress - 0.25) / 0.2);
-                } else if (progress < 0.65) {
-                    // Stay fully visible - user can read everything comfortably
-                    content.style.opacity = 1;
                 } else {
-                    // Fade out toward next section rapidly to cut out white space
-                    content.style.opacity = Math.max(0, 1 - (progress - 0.65) / 0.2);
+                    // STAY FULLY VISIBLE FOREVER (No fade out at all!)
+                    content.style.opacity = 1;
                 }
 
                 ticking = false;
