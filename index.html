@@ -249,29 +249,34 @@
                 let progress = -rect.top / maxScroll;
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // Mask zooms in faster
-                const scale = 1 + Math.pow(progress, 1.8) * 150;
+                // Mask zooms in 
+                const scale = 1 + Math.pow(progress, 1.5) * 80;
                 svg.style.transform = `translate(-50%, -50%) scale(${scale})`;
                 
+                // FADE OUT THE MASK to prevent the sharp star edges (the "X") from clipping the text on fast mobile scroll
+                svg.style.opacity = Math.max(0, 1 - (progress * 4));
+                
+                // Intro text fades out and moves up
                 intro.style.opacity = Math.max(0, 1 - (progress * 3));
                 intro.style.transform = `translate(-50%, calc(-50% + ${progress * 50}px))`;
                 
-                // Text fades in LATER and SLOWER
-                if (progress > 0.18) {
-                    content.style.opacity = Math.min(1, (progress - 0.18) * 2.5);
+                // Reveal text fades in seamlessly
+                if (progress > 0.1) {
+                    content.style.opacity = Math.min(1, (progress - 0.1) * 3);
                 } else {
                     content.style.opacity = 0;
                 }
 
-                // Simple, elegant upwards flight:
+                // Small hollow star elegant upwards flight:
                 const flyY = progress * -window.innerHeight * 0.9;
-                const flyScale = 1 + (progress * 2.5);
-                const flyRotate = progress * 90;
+                const flyScale = 1 + (progress * 2);
+                const flyRotate = progress * 45;
                 
                 const transformStr = `translate(-50%, calc(-50% + ${flyY}px)) scale(${flyScale}) rotate(${flyRotate}deg)`;
                 smallStar.style.transform = transformStr;
                 
-                const starOpacity = progress > 0.1 ? 1 - ((progress - 0.1) * 2.5) : 1; 
+                // Small star fades out before the next section
+                const starOpacity = progress > 0.1 ? 1 - ((progress - 0.1) * 3) : 1; 
                 smallStar.style.opacity = Math.max(0, starOpacity);
 
                 ticking = false;
