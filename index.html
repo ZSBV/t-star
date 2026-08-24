@@ -210,15 +210,17 @@
 
             <!-- Small floating star logo (hollow and animated) -->
             <div id="small-star" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); z-index: 15; will-change: transform, opacity;">
-                <div style="animation: floatShooting 5s ease-in-out infinite;">
-                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible; filter: drop-shadow(0 0 8px rgba(240, 103, 35, 0.4));">
+                <!-- 7s float makes it out of sync with the 5s draw, creating a very organic, non-static feel -->
+                <div style="animation: floatShooting 7s ease-in-out infinite;">
+                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible; filter: drop-shadow(0 0 12px rgba(240, 103, 35, 0.6)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));">
                         <defs>
                             <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stop-color="#FFD700" /> <!-- Yellow at top -->
                                 <stop offset="100%" stop-color="#F06723" /> <!-- Orange at bottom -->
                             </linearGradient>
                         </defs>
-                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;"/>
+                        <!-- Thinner, more elegant line: stroke-width="1.5" -->
+                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 4.5s ease-in-out infinite alternate;"/>
                     </svg>
                 </div>
             </div>
@@ -339,17 +341,14 @@
             60% { transform: translateY(-7px); }
         }
         @keyframes floatShooting {
-            0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 5px 10px rgba(240, 103, 35, 0.3)); }
-            50% { transform: translateY(-20px) rotate(15deg); filter: drop-shadow(0 15px 25px rgba(240, 103, 35, 0.7)); }
-        }
-        .star-path {
-            stroke-dasharray: 250;
-            stroke-dashoffset: 250;
-            animation: drawStar 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
-        }
-        @keyframes drawStar {
-            0% { stroke-dashoffset: 250; }
-            100% { stroke-dashoffset: 0; }
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                filter: drop-shadow(0 5px 10px rgba(240, 103, 35, 0.4)); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(15deg); 
+                filter: drop-shadow(0 15px 35px rgba(255, 215, 0, 0.9)); 
+            }
         }
         @keyframes drawStarElegant {
             0% { stroke-dashoffset: 100; }
