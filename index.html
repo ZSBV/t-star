@@ -732,14 +732,14 @@
                 // Content (New Hero) fades in smoothly (0.2 to 0.8)
                 if (progress < 0.2) {
                     content.style.opacity = 0;
-                    content.style.transform = `translate3d(-50%, calc(50% + 40px), 0)`;
+                    content.style.transform = `translate3d(-50%, calc(-50% + 40px), 0)`;
                 } else if (progress < 0.8) {
                     const contentFade = (progress - 0.2) / 0.6;
                     content.style.opacity = contentFade;
-                    content.style.transform = `translate3d(-50%, calc(50% + ${40 - (contentFade * 40)}px), 0)`;
+                    content.style.transform = `translate3d(-50%, calc(-50% + ${40 - (contentFade * 40)}px), 0)`;
                 } else {
                     content.style.opacity = 1;
-                    content.style.transform = `translate3d(-50%, 50%, 0)`;
+                    content.style.transform = `translate3d(-50%, -50%, 0)`;
                 }
             }
 
