@@ -282,7 +282,7 @@
     
     
 
-    <section id="jobs" class="jobs section" style="margin-top: 0; position: relative; z-index: 20; padding-top: 40px;">
+    <section id="jobs" class="jobs section" style="margin-top: -15vh; position: relative; z-index: 20; padding-top: 40px;">
         <div class="container">
             <div class="section-header">
                 <h2>Offene Stellen</h2>
@@ -705,7 +705,7 @@
             
             function setHeights() {
                 const winH = window.innerHeight;
-                reveal.style.height = (winH * 1.5) + 'px';
+                reveal.style.height = (winH * 1.25) + 'px';
                 stickyContainer.style.height = winH + 'px';
                 return winH;
             }
@@ -714,14 +714,14 @@
                 let progress = -reveal.getBoundingClientRect().top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // Intro fades out smoothly (0 to 0.4)
-                const introFade = Math.max(0, 1 - progress / 0.4);
+                // Intro fades out EXTREMELY fast (0 to 0.2)
+                const introFade = Math.max(0, 1 - progress / 0.2);
                 intro.style.opacity = introFade;
-                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0)`;
+                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
                 smallStar.style.opacity = introFade;
-                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0)`;
+                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
 
-                if (progress > 0.4) {
+                if (progress > 0.2) {
                     intro.style.pointerEvents = "none";
                     smallStar.style.pointerEvents = "none";
                 } else {
@@ -729,14 +729,14 @@
                     smallStar.style.pointerEvents = "auto";
                 }
 
-                // Content (New Hero) fades in smoothly (0.2 to 0.8)
-                if (progress < 0.2) {
+                // Content (New Hero) fades in extremely fast right after (0.1 to 0.5)
+                if (progress < 0.1) {
                     content.style.opacity = 0;
-                    content.style.transform = `translate3d(-50%, calc(-50% + 40px), 0)`;
-                } else if (progress < 0.8) {
-                    const contentFade = (progress - 0.2) / 0.6;
+                    content.style.transform = `translate3d(-50%, calc(-50% + 50px), 0)`;
+                } else if (progress < 0.5) {
+                    const contentFade = (progress - 0.1) / 0.4;
                     content.style.opacity = contentFade;
-                    content.style.transform = `translate3d(-50%, calc(-50% + ${40 - (contentFade * 40)}px), 0)`;
+                    content.style.transform = `translate3d(-50%, calc(-50% + ${50 - (contentFade * 50)}px), 0)`;
                 } else {
                     content.style.opacity = 1;
                     content.style.transform = `translate3d(-50%, -50%, 0)`;
@@ -745,12 +745,12 @@
 
             window.addEventListener('resize', () => {
                 const winH = setHeights();
-                maxScroll = winH * 0.5; 
+                maxScroll = winH * 0.25; 
                 updateAnimation();
             });
 
             const winH = setHeights();
-            maxScroll = winH * 0.5;
+            maxScroll = winH * 0.25;
             
             window.addEventListener('scroll', updateAnimation, { passive: true });
             updateAnimation();
