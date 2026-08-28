@@ -697,7 +697,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const reveal = document.getElementById('hero-reveal');
             const stickyContainer = document.querySelector('.sticky-container');
-                        const intro = document.getElementById('intro-text');
+            const intro = document.getElementById('intro-text');
             const smallStar = document.getElementById('small-star');
             const content = document.getElementById('reveal-content');
             
@@ -721,7 +721,6 @@
                 smallStar.style.opacity = introFade;
                 smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0)`;
 
-                // Pointer events toggle so buttons below become clickable
                 if (progress > 0.4) {
                     intro.style.pointerEvents = "none";
                     smallStar.style.pointerEvents = "none";
@@ -741,37 +740,6 @@
                 } else {
                     content.style.opacity = 1;
                     content.style.transform = `translate3d(-50%, 60%, 0)`;
-                }
-            }px), 0)`;
-                
-                // Small star moves up and fades out
-                smallStar.style.opacity = introFade;
-                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
-
-                // Star hole scales up aggressively
-                let scale = 1;
-                if (progress > 0.1) {
-                    const scaleProgress = (progress - 0.1) / 0.7;
-                    const eased = scaleProgress < 0.5 ? 2 * scaleProgress * scaleProgress : 1 - Math.pow(-2 * scaleProgress + 2, 2) / 2;
-                    scale = 1 + (eased * 150);
-                }
-                mask.style.transform = `translate3d(-50%, -50%, 0) scale(${scale})`;
-                
-                // Content fades in (and we remove the mask to make the buttons clickable)
-                if (progress < 0.35) {
-                    content.style.opacity = 0;
-                    content.style.transform = `translate3d(-50%, calc(60% + 50px), 0)`;
-                    mask.style.pointerEvents = "none";
-                    mask.style.display = "block";
-                } else if (progress < 0.55) {
-                    const contentFade = (progress - 0.35) / 0.2;
-                    content.style.opacity = contentFade;
-                    content.style.transform = `translate3d(-50%, calc(60% + ${50 - (contentFade * 50)}px), 0)`;
-                    mask.style.display = "block";
-                } else {
-                    content.style.opacity = 1;
-                    content.style.transform = `translate3d(-50%, 60%, 0)`;
-                    mask.style.display = progress > 0.9 ? "none" : "block";
                 }
             }
 
