@@ -79,7 +79,12 @@
     
     <!-- CSS & JS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/three-star.js"></script>
     <script src="js/main.js" defer></script>
+
 
     <style>
         /* ===== HERO RESPONSIVE ===== */
@@ -179,138 +184,88 @@
     <section id="hero-reveal" style="height: 190vh; position: relative;">
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
-            <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <!-- Highly Professional 3D Canvas Container -->
+            <div id="three-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none;"></div>
+
+            <!-- Hidden Background Content (Revealed seamlessly) -->
+            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s; z-index: 2;">
                 <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
-                
                 <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
-                
                 <div style="display: flex; justify-content: center; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap; margin-bottom: 60px;">
                     <img src="images/partner-nr.png" alt="NR International Management GmbH" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
                     <img src="images/partner-telekom.jpg" alt="Telekom" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
                     <img src="images/partner-eon.png" alt="E.ON" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
                 </div>
-                
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                     <a href="#" onclick="requestLocationAndRedirect(this); return false;" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; border-radius: 4px; box-shadow: 0 4px 15px rgba(240, 103, 35, 0.4);"><i class="fa-solid fa-location-crosshairs"></i> Jobs in deiner Nähe finden</a>
                 </div>
             </div>
 
-            <!-- The White Star Mask (Overlay) - Optimized for iOS Safari Limits -->
-            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 120vmax; height: 120vmax; pointer-events: none; z-index: 5; transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.15s ease-out; will-change: transform, opacity;" viewBox="0 0 1000 1000">
-                <!-- Massive star hole (radius 450) to require much less CSS scaling -->
-                <path d="M-1000,-1000 H2000 V2000 H-1000 Z M500,50 L599,350 L914,350 L659,536 L755,836 L500,650 L245,836 L341,536 L86,350 L401,350 Z" fill="#ffffff" fill-rule="evenodd"/>
-            </svg>
-
-            <!-- Initial Intro Text on White Background -->
-            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%;">
+            <!-- Initial Intro Text -->
+            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%; pointer-events: none;">
                 <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px;">T-Star Promotion</h1>
                 <p style="color: #666; font-size: 18px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
                 <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
             </div>
 
-            <!-- Small floating star logo (hollow and animated) -->
-            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate3d(-50%, -50%, 0); z-index: 15; will-change: transform, opacity;">
-                <!-- 7s float makes it out of sync with the 5s draw, creating a very organic, non-static feel -->
-                <div style="animation: floatShooting 7s ease-in-out infinite;">
-                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
-                        <defs>
-                            <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="10%" stop-color="#FFD700" /> <!-- Yellow only at the very top -->
-                                <stop offset="50%" stop-color="#F06723" /> <!-- Much more orange -->
-                                <stop offset="100%" stop-color="#F06723" /> <!-- Solid orange at bottom -->
-                            </linearGradient>
-                        </defs>
-                        <!-- Thinner, more elegant line: stroke-width="2.5" -->
-                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 4.5s ease-in-out infinite alternate;"/>
-                    </svg>
-                </div>
-            </div>
         </div>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const reveal = document.getElementById('hero-reveal');
-            const svg = document.getElementById('star-mask-svg');
+            const stickyContainer = document.querySelector('.sticky-container');
             const intro = document.getElementById('intro-text');
             const content = document.getElementById('reveal-content');
-            const smallStar = document.getElementById('small-star');
-            const stickyContainer = reveal.querySelector('.sticky-container');
             
-            if (!reveal || !svg || !intro || !content || !smallStar || !stickyContainer) return;
-
-            // Hardware acceleration hints to GPU
-            svg.style.willChange = 'transform, opacity';
-            intro.style.willChange = 'transform, opacity';
-            content.style.willChange = 'opacity';
+            let maxScroll = 0;
             
-            let ticking = false;
-
-            // iOS Safari vh Bug Fix: Force fixed pixel heights instead of vh
             function setHeights() {
                 const winH = window.innerHeight;
-                // Shorter scroll distance so the next section appears faster
                 reveal.style.height = (winH * 1.6) + 'px';
                 stickyContainer.style.height = winH + 'px';
                 return winH;
             }
-            let cachedWinHeight = setHeights();
-            let cachedHeight = reveal.getBoundingClientRect().height;
-            let maxScroll = cachedHeight - cachedWinHeight;
-
-            // Update cached dimensions only on resize, not on scroll
-            window.addEventListener('resize', () => {
-                cachedWinHeight = setHeights();
-                cachedHeight = reveal.getBoundingClientRect().height;
-                maxScroll = cachedHeight - cachedWinHeight;
-                if (!ticking) {
-                    window.requestAnimationFrame(updateAnimation);
-                    ticking = true;
-                }
-            }, { passive: true });
 
             function updateAnimation() {
                 let progress = -reveal.getBoundingClientRect().top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // === PHASE 1 (0 → 0.25): Intro exits - star up, text down ===
+                // Phase 1 (0 -> 0.25): Intro fades out with premium blur and scale
                 const introFade = Math.max(0, 1 - progress / 0.25);
                 intro.style.opacity = introFade;
-                intro.style.transform = `translate3d(-50%, calc(-50% + ${progress * 80}px), 0)`;
+                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0) scale(${1 + (progress * 0.2)})`; // Flies up and scales towards user slightly
+                intro.style.filter = `blur(${progress * 20}px)`; // Blurs out into the distance
 
-                // Star mask fades as it zooms
-                const scale = 1 + Math.pow(progress, 1.5) * 10;
-                svg.style.transform = `translate3d(-50%, -50%, 0) scale(${scale})`;
-                svg.style.opacity = Math.max(0, 1 - progress / 0.2);
-
-                // Small star flies upward
-                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 220}px), 0) scale(${1 + progress * 0.4})`;
-                smallStar.style.opacity = introFade;
-
-                // === PHASE 2 (0.25 → 1.0): Partners fade in and STAY visible ===
-                if (progress < 0.25) {
+                // Phase 2 (0.35 -> 1.0): Content fades in
+                if (progress < 0.40) {
                     content.style.opacity = 0;
-                } else if (progress < 0.45) {
-                    // Fade in quickly
-                    content.style.opacity = Math.min(1, (progress - 0.25) / 0.2);
+                    content.style.transform = `translate3d(-50%, calc(75% + 60px), 0) scale(0.9)`; 
+                    content.style.filter = 'blur(10px)';
+                } else if (progress < 0.70) {
+                    const contentFade = (progress - 0.40) / 0.30;
+                    // Ease out cubic
+                    const easeOut = 1 - Math.pow(1 - contentFade, 3);
+                    content.style.opacity = easeOut;
+                    content.style.transform = `translate3d(-50%, calc(75% + ${60 - (easeOut * 60)}px), 0) scale(${0.9 + easeOut * 0.1})`; 
+                    content.style.filter = `blur(${10 - (easeOut * 10)}px)`;
                 } else {
-                    // STAY FULLY VISIBLE FOREVER (No fade out at all!)
                     content.style.opacity = 1;
+                    content.style.transform = `translate3d(-50%, 75%, 0) scale(1)`;
+                    content.style.filter = 'blur(0px)';
                 }
+            }
 
-                ticking = false;
-            }         
+            window.addEventListener('resize', () => {
+                const winH = setHeights();
+                maxScroll = winH * 0.6; 
+                updateAnimation();
+            });
 
-            // Passive scroll listener with requestAnimationFrame for extreme fluidity
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateAnimation);
-                    ticking = true;
-                }
-            }, { passive: true });
+            const winH = setHeights();
+            maxScroll = winH * 0.6;
             
-            // Initial render
+            window.addEventListener('scroll', updateAnimation, { passive: true });
             updateAnimation();
         });
     </script>
