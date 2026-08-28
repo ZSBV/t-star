@@ -249,10 +249,7 @@
     
             </div>
 
-            <!-- The White Star Mask (Overlay) -->
-            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 120vmax; height: 120vmax; pointer-events: none; z-index: 5; transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.15s ease-out; will-change: transform, opacity;" viewBox="0 0 1000 1000">
-                <path d="M-1000,-1000 H2000 V2000 H-1000 Z M500,50 L599,350 L914,350 L659,536 L755,836 L500,650 L245,836 L341,536 L86,350 L401,350 Z" fill="#ffffff" fill-rule="evenodd"/>
-            </svg>
+            
 
             <!-- Initial Intro Text on White Background -->
             <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%;">
@@ -700,8 +697,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const reveal = document.getElementById('hero-reveal');
             const stickyContainer = document.querySelector('.sticky-container');
-            const mask = document.getElementById('star-mask-svg');
-            const intro = document.getElementById('intro-text');
+                        const intro = document.getElementById('intro-text');
             const smallStar = document.getElementById('small-star');
             const content = document.getElementById('reveal-content');
             
@@ -718,10 +714,35 @@
                 let progress = -reveal.getBoundingClientRect().top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // Intro fades out and moves up
-                const introFade = Math.max(0, 1 - progress / 0.25);
+                // Intro fades out smoothly (0 to 0.4)
+                const introFade = Math.max(0, 1 - progress / 0.4);
                 intro.style.opacity = introFade;
-                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
+                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0)`;
+                smallStar.style.opacity = introFade;
+                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 100}px), 0)`;
+
+                // Pointer events toggle so buttons below become clickable
+                if (progress > 0.4) {
+                    intro.style.pointerEvents = "none";
+                    smallStar.style.pointerEvents = "none";
+                } else {
+                    intro.style.pointerEvents = "auto";
+                    smallStar.style.pointerEvents = "auto";
+                }
+
+                // Content (New Hero) fades in smoothly (0.2 to 0.8)
+                if (progress < 0.2) {
+                    content.style.opacity = 0;
+                    content.style.transform = `translate3d(-50%, calc(60% + 40px), 0)`;
+                } else if (progress < 0.8) {
+                    const contentFade = (progress - 0.2) / 0.6;
+                    content.style.opacity = contentFade;
+                    content.style.transform = `translate3d(-50%, calc(60% + ${40 - (contentFade * 40)}px), 0)`;
+                } else {
+                    content.style.opacity = 1;
+                    content.style.transform = `translate3d(-50%, 60%, 0)`;
+                }
+            }px), 0)`;
                 
                 // Small star moves up and fades out
                 smallStar.style.opacity = introFade;
