@@ -1,0 +1,52 @@
+    <section id="hero-reveal" style="height: 190vh; position: relative;">
+        <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            
+            <!-- Hidden Background Content (Revealed on scroll) -->
+            <div id="reveal-content" style="position: absolute; top: 75%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+                <h1 style="color: #111; font-size: clamp(36px, 5vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 20px;">Gemeinsam mit<br><span style="color: var(--primary);">starken Partnern</span></h1>
+                
+                <p style="color: #444; font-size: 20px; font-weight: 500; margin-bottom: 50px;">Deine Zukunft im Direktvertrieb für Glasfaser & Energie.</p>
+                
+                <div style="display: flex; justify-content: center; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap; margin-bottom: 60px;">
+                    <img src="images/partner-nr.png" alt="NR International Management GmbH" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                    <img src="images/partner-telekom.jpg" alt="Telekom" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                    <img src="images/partner-eon.png" alt="E.ON" style="height: clamp(50px, 8vw, 90px); object-fit: contain;">
+                </div>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#" onclick="requestLocationAndRedirect(this); return false;" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; border-radius: 4px; box-shadow: 0 4px 15px rgba(240, 103, 35, 0.4);"><i class="fa-solid fa-location-crosshairs"></i> Jobs in deiner Nähe finden</a>
+                </div>
+            </div>
+
+            <!-- The White Star Mask (Overlay) - Optimized for iOS Safari Limits -->
+            <svg id="star-mask-svg" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 120vmax; height: 120vmax; pointer-events: none; z-index: 5; transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.15s ease-out; will-change: transform, opacity;" viewBox="0 0 1000 1000">
+                <!-- Massive star hole (radius 450) to require much less CSS scaling -->
+                <path d="M-1000,-1000 H2000 V2000 H-1000 Z M500,50 L599,350 L914,350 L659,536 L755,836 L500,650 L245,836 L341,536 L86,350 L401,350 Z" fill="#ffffff" fill-rule="evenodd"/>
+            </svg>
+
+            <!-- Initial Intro Text on White Background -->
+            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%;">
+                <h1 style="color: #111; font-size: clamp(30px, 4vw, 50px); font-weight: 900; letter-spacing: -1px;">T-Star Promotion</h1>
+                <p style="color: #666; font-size: 18px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
+                <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
+            </div>
+
+            <!-- Small floating star logo (hollow and animated) -->
+            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate3d(-50%, -50%, 0); z-index: 15; will-change: transform, opacity;">
+                <!-- 7s float makes it out of sync with the 5s draw, creating a very organic, non-static feel -->
+                <div style="animation: floatShooting 7s ease-in-out infinite;">
+                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
+                        <defs>
+                            <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="10%" stop-color="#FFD700" /> <!-- Yellow only at the very top -->
+                                <stop offset="50%" stop-color="#F06723" /> <!-- Much more orange -->
+                                <stop offset="100%" stop-color="#F06723" /> <!-- Solid orange at bottom -->
+                            </linearGradient>
+                        </defs>
+                        <!-- Thinner, more elegant line: stroke-width="2.5" -->
+                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 4.5s ease-in-out infinite alternate;"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
