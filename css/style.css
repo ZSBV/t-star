@@ -492,9 +492,15 @@ a {
 
 .bewerben .section-header {
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
     position: relative;
     z-index: 2;
+}
+
+.form-badge-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
 }
 
 .form-badge {
@@ -506,10 +512,9 @@ a {
     -webkit-backdrop-filter: blur(10px);
     color: #FFFFFF;
     font-size: 13px;
-    font-weight: 700;
-    padding: 6px 18px;
+    font-weight: 600;
+    padding: 7px 20px;
     border-radius: 30px;
-    margin-bottom: 18px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -518,16 +523,16 @@ a {
 
 .bewerben .section-header h2 {
     color: #FFFFFF;
-    font-size: clamp(32px, 5vw, 44px);
+    font-size: clamp(34px, 5vw, 46px);
     font-weight: 900;
     letter-spacing: -0.5px;
-    margin-bottom: 12px;
+    margin: 0 0 15px 0;
+    display: block !important;
+    text-align: center;
 }
 
 .bewerben .section-header h2::after {
-    background-color: #FFFFFF;
-    height: 3px;
-    width: 50px;
+    display: none;
 }
 
 .bewerben .section-header p {
@@ -535,6 +540,8 @@ a {
     font-size: 17px;
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
+    line-height: 1.6;
 }
 
 .apply-form-container {
@@ -568,7 +575,7 @@ a {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 700;
+    font-weight: 600 !important;
     color: #FFFFFF;
     font-size: 14px;
     letter-spacing: 0.2px;
