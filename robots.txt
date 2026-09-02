@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://t-starpromotion.de/sitemap.xml
+Sitemap: https://t-starpromotion.de/karriere/sitemap.xml
