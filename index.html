@@ -107,12 +107,18 @@
             align-items: center;
             justify-content: center;
             z-index: 20;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                        opacity 0.65s ease, 
+                        filter 0.65s ease;
             cursor: pointer;
             padding: 85px 20px 40px;
             box-sizing: border-box;
             user-select: none;
             -webkit-user-select: none;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            filter: blur(0px);
+            will-change: transform, opacity, filter;
         }
 
         .hero-intro-inner {
@@ -172,7 +178,7 @@
         .hero-content-screen {
             position: relative;
             background: #FFFFFF;
-            padding: 130px 20px 70px;
+            padding: 110px 20px 60px;
             min-height: 100vh;
             box-sizing: border-box;
             display: flex;
@@ -180,21 +186,61 @@
             justify-content: center;
             text-align: center;
             opacity: 0;
-            transform: scale(0.98) translateY(20px);
-            transition: opacity 1.0s ease 0.15s, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(50px) scale(0.97);
+            filter: blur(5px);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.05s, 
+                        opacity 0.65s ease 0.05s, 
+                        filter 0.65s ease 0.05s;
             z-index: 10;
+            will-change: transform, opacity, filter;
         }
 
         /* REVEALED STATE */
         .hero-swipe-wrapper.is-revealed .hero-intro-screen {
-            transform: translateY(-100%);
+            transform: translateY(-80px) scale(0.95);
             opacity: 0;
+            filter: blur(6px);
             pointer-events: none;
         }
 
         .hero-swipe-wrapper.is-revealed .hero-content-screen {
             opacity: 1;
-            transform: scale(1) translateY(0);
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+
+        .hero-back-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #777777;
+            background: #F8F9FA;
+            border: 1px solid #EAEAEA;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .hero-back-pill:hover {
+            background: #FFF3EC;
+            color: #F06723;
+            border-color: rgba(240, 103, 35, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero-back-pill i {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .hero-back-pill:hover i {
+            transform: translateY(-2px);
         }
 
         /* Ambient Glow Backdrop */
@@ -517,6 +563,11 @@
             <div class="hero-ambient-glow"></div>
 
             <div class="container hero-container">
+                <!-- Back to Star Button -->
+                <div class="hero-back-pill" id="hero-back-pill">
+                    <i class="fa-solid fa-chevron-up"></i> Zurück zum Stern
+                </div>
+
                 <!-- Main Heading -->
                 <h1 class="hero-title">
                     T-Star Promotion<br>
@@ -1158,10 +1209,11 @@
             const heroWrapper = document.getElementById('hero');
             const introScreen = document.getElementById('hero-intro-screen');
             const contentScreen = document.getElementById('hero-content-screen');
+            const backPill = document.getElementById('hero-back-pill');
             if (!heroWrapper || !introScreen) return;
 
             let isRevealed = false;
-            let touchStartY = 0;
+            let introTouchStartY = 0;
             let contentTouchStartY = 0;
 
             function revealHero() {
@@ -1174,18 +1226,19 @@
                 if (!isRevealed) return;
                 isRevealed = false;
                 heroWrapper.classList.remove('is-revealed');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // 1. INTRO SCREEN: Swipe or tap to reveal Hero (Smooth & Deliberate)
+            // ===== 1. FROM STAR TO HERO (FORWARD) =====
             introScreen.addEventListener('touchstart', function(e) {
-                touchStartY = e.touches[0].clientY;
+                introTouchStartY = e.touches[0].clientY;
             }, { passive: true });
 
             introScreen.addEventListener('touchend', function(e) {
-                const touchEndY = e.changedTouches[0].clientY;
-                const deltaY = touchStartY - touchEndY;
-                // Require a deliberate swipe gesture (> 40px)
-                if (Math.abs(deltaY) > 40) {
+                const introTouchEndY = e.changedTouches[0].clientY;
+                const deltaY = introTouchStartY - introTouchEndY;
+                // Swipe UP (> 35px)
+                if (deltaY > 35) {
                     revealHero();
                 }
             }, { passive: true });
@@ -1195,29 +1248,56 @@
             });
 
             introScreen.addEventListener('wheel', function(e) {
-                if (e.deltaY > 15) {
+                if (e.deltaY > 10) {
                     revealHero();
                 }
             }, { passive: true });
 
-            // 2. Window scroll: scrolling down reveals hero smoothly (does NOT jump back on scroll up)
-            window.addEventListener('scroll', function() {
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > 60 && !isRevealed) {
+
+            // ===== 2. FROM HERO BACK TO STAR (BACKWARD) =====
+            if (contentScreen) {
+                contentScreen.addEventListener('touchstart', function(e) {
+                    contentTouchStartY = e.touches[0].clientY;
+                }, { passive: true });
+
+                contentScreen.addEventListener('touchend', function(e) {
+                    // Only trigger if user is at the top of the page
+                    if (window.scrollY <= 20) {
+                        const contentTouchEndY = e.changedTouches[0].clientY;
+                        const deltaY = contentTouchEndY - contentTouchStartY; // positive = dragging down
+                        if (deltaY > 35) {
+                            hideHero();
+                        }
+                    }
+                }, { passive: true });
+            }
+
+            // Desktop Mouse Wheel: wheel UP when at the very top of page
+            window.addEventListener('wheel', function(e) {
+                if (window.scrollY <= 5 && e.deltaY < -12 && isRevealed) {
+                    hideHero();
+                } else if (window.scrollY <= 5 && e.deltaY > 12 && !isRevealed) {
                     revealHero();
                 }
             }, { passive: true });
 
-            // 3. Clicking "Home" or Logo in header resets to Star screen
+            // "Zurück zum Stern" pill button
+            if (backPill) {
+                backPill.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    hideHero();
+                });
+            }
+
+            // Header Logo or "Home" link
             const homeTriggers = document.querySelectorAll('a[href="#hero"], a[href="#"], .logo-link');
             homeTriggers.forEach(function(trigger) {
                 trigger.addEventListener('click', function(e) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     hideHero();
                 });
             });
 
-            // 4. Direct anchor link on page load (e.g. #jobs)
+            // If page loaded with a deep hash like #jobs
             if (window.location.hash && window.location.hash !== '#hero') {
                 revealHero();
             }
