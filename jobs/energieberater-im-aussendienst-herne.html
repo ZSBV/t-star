@@ -429,15 +429,7 @@
             line-height: 1.3;
         }
 
-        .apply-form-card {
-            background-color: var(--white);
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            text-align: left;
-        }
+        .apply-form-card { background: transparent !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
 
         .form-row {
             display: flex;
@@ -453,7 +445,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--dark-gray);
+            color: #FFFFFF !important;
         }
 
         .form-control {
@@ -679,9 +671,7 @@
                 padding: 25px;
             }
 
-            .apply-form-card {
-                padding: 30px 20px;
-            }
+            .apply-form-card { background: transparent !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
             
             .floating-buttons {
                 bottom: 20px;
@@ -768,15 +758,7 @@
             padding: 80px 20px;
         }
 
-        .apply-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #FFFFFF;
-            padding: 50px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            color: #1A1A1A;
-        }
+        .apply-form-container { max-width: 800px; margin: 0 auto; background: transparent !important; padding: 0 !important; border-radius: 0 !important; box-shadow: none !important; color: #FFFFFF; }
 
         .form-row {
             display: flex;
@@ -796,7 +778,10 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #333333;
+            color: #FFFFFF !important;
+        }
+        .checkbox-group label {
+            color: rgba(255, 255, 255, 0.95) !important;
         }
 
         .form-group input, 
@@ -864,9 +849,7 @@
                 flex-direction: column;
                 gap: 20px;
             }
-            .apply-form-container {
-                padding: 30px 20px;
-            }
+            .apply-form-container { max-width: 800px; margin: 0 auto; background: transparent !important; padding: 0 !important; border-radius: 0 !important; box-shadow: none !important; color: #FFFFFF; }
         }
 
     </style>
