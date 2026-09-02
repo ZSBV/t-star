@@ -894,3 +894,53 @@ a {
     color: var(--text-light);
     line-height: 1.6;
 }
+
+/* High-Contrast Full-Width Submit Button */
+.btn-submit-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit-dark:hover {
+    background-color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    color: var(--light);
+}
+
+.whatsapp-apply-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: white !important;
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-apply-btn:hover {
+    background-color: #20BA56;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
