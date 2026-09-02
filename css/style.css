@@ -416,16 +416,17 @@ a {
 
 /* --- LEISTUNGEN (SERVICES) --- */
 .leistungen {
-    background-color: var(--light);
+    background-color: var(--gray-bg);
     color: var(--dark);
+    padding: 80px 0;
 }
 
 .leistungen .section-header h2 {
-    color: var(--light);
+    color: var(--dark);
 }
 
 .leistungen .section-header p {
-    color: rgba(255,255,255,0.7);
+    color: var(--text-light);
 }
 
 .services-grid {
@@ -435,16 +436,19 @@ a {
 }
 
 .service-box {
-    background: rgba(255,255,255,0.05);
+    background: var(--light);
     padding: 40px 30px;
     border-radius: var(--radius);
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eaeaea;
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .service-box:hover {
-    background: rgba(240, 103, 35, 0.1);
+    transform: translateY(-5px);
+    background: var(--light);
+    box-shadow: 0 12px 25px rgba(240, 103, 35, 0.15);
     border-color: var(--primary);
 }
 
@@ -455,12 +459,15 @@ a {
 }
 
 .service-box h3 {
-    color: var(--light);
+    color: var(--dark);
     margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .service-box p {
-    color: rgba(255,255,255,0.7);
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
 /* --- BEWERBUNG (APPLY FORM) --- */
