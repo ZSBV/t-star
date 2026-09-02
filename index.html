@@ -216,7 +216,7 @@
         <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, calc(-50% + 10vh), 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.5s;">
+            <div id="reveal-content" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; pointer-events: none; will-change: transform, opacity;">
                 
         
         <!-- Subtle background accent (Very modern and premium) -->
@@ -235,7 +235,7 @@
             
             <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 60px;">
                 <a href="#jobs" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; border-radius: 30px; box-shadow: 0 10px 25px rgba(240, 103, 35, 0.3);"><i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen</a>
-                <a href="#partner-kontakt" class="btn" style="padding: 18px 40px; font-size: 18px; border-radius: 30px; background: #f8f9fa; color: #333; border: 1px solid #eee;"><i class="fa-solid fa-handshake"></i> Partner werden</a>
+                <a href="partner.html" class="btn" style="padding: 18px 40px; font-size: 18px; border-radius: 30px; background: #f8f9fa; color: #333; border: 1px solid #eee;"><i class="fa-solid fa-handshake"></i> Partner werden</a>
             </div>
 
             <!-- Partner Logos -->
@@ -885,26 +885,31 @@
             const content = document.getElementById('reveal-content');
             
             let maxScroll = 0;
+            let ticking = false;
             
             function setHeights() {
                 const winH = window.innerHeight;
-                reveal.style.height = (winH * 1.25) + 'px';
+                reveal.style.height = (winH * 1.3) + 'px';
                 stickyContainer.style.height = winH + 'px';
+                maxScroll = winH * 0.3;
                 return winH;
             }
 
             function updateAnimation() {
-                let progress = -reveal.getBoundingClientRect().top / (maxScroll > 0 ? maxScroll : 1);
+                const rect = reveal.getBoundingClientRect();
+                let progress = -rect.top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // Intro fades out EXTREMELY fast (0 to 0.2)
-                const introFade = Math.max(0, 1 - progress / 0.2);
+                // Intro fades out swiftly and smoothly (0 to 0.15)
+                const introFade = Math.max(0, 1 - progress / 0.15);
                 intro.style.opacity = introFade;
-                intro.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
                 smallStar.style.opacity = introFade;
-                smallStar.style.transform = `translate3d(-50%, calc(-50% - ${progress * 150}px), 0)`;
+                
+                const translateY = -progress * 60;
+                intro.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
+                smallStar.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
 
-                if (progress > 0.2) {
+                if (progress > 0.15) {
                     intro.style.pointerEvents = "none";
                     smallStar.style.pointerEvents = "none";
                 } else {
@@ -912,30 +917,40 @@
                     smallStar.style.pointerEvents = "auto";
                 }
 
-                // Content (New Hero) fades in extremely fast right after (0.1 to 0.5)
-                if (progress < 0.1) {
+                // T-Star Promotion (Gemeinsam mit starken Partnern)
+                // Appears much faster and buttery smooth (starts at 0.05, 100% visible at 0.22!)
+                if (progress <= 0.05) {
                     content.style.opacity = 0;
-                    content.style.transform = `translate3d(-50%, calc(-50% + 10vh + 50px), 0)`;
-                } else if (progress < 0.5) {
-                    const contentFade = (progress - 0.1) / 0.4;
+                    content.style.pointerEvents = "none";
+                } else if (progress < 0.22) {
+                    const contentFade = (progress - 0.05) / 0.17;
                     content.style.opacity = contentFade;
-                    content.style.transform = `translate3d(-50%, calc(-50% + 10vh + ${50 - (contentFade * 50)}px), 0)`;
+                    content.style.pointerEvents = "auto";
+                    const offset = (1 - contentFade) * 20;
+                    content.style.transform = `translate3d(-50%, calc(-50% + ${offset}px), 0)`;
                 } else {
                     content.style.opacity = 1;
-                    content.style.transform = `translate3d(-50%, calc(-50% + 10vh), 0)`;
+                    content.style.pointerEvents = "auto";
+                    content.style.transform = `translate3d(-50%, -50%, 0)`;
+                }
+                
+                ticking = false;
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateAnimation);
+                    ticking = true;
                 }
             }
 
             window.addEventListener('resize', () => {
-                const winH = setHeights();
-                maxScroll = winH * 0.25; 
-                updateAnimation();
+                setHeights();
+                requestTick();
             });
 
-            const winH = setHeights();
-            maxScroll = winH * 0.25;
-            
-            window.addEventListener('scroll', updateAnimation, { passive: true });
+            setHeights();
+            window.addEventListener('scroll', requestTick, { passive: true });
             updateAnimation();
         });
     </script>
