@@ -1150,15 +1150,17 @@
         }
     </script>
 
-    <!-- Interactive Hero Swipe Controller -->
+    <!-- Interactive Hero Swipe & Return Controller -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const heroWrapper = document.getElementById('hero');
             const introScreen = document.getElementById('hero-intro-screen');
+            const contentScreen = document.getElementById('hero-content-screen');
             if (!heroWrapper || !introScreen) return;
 
-            let touchStartY = 0;
             let isRevealed = false;
+            let touchStartY = 0;
+            let contentTouchStartY = 0;
 
             function revealHero() {
                 if (isRevealed) return;
@@ -1166,7 +1168,13 @@
                 heroWrapper.classList.add('is-revealed');
             }
 
-            // 1. Mobile touch swipe on intro screen
+            function hideHero() {
+                if (!isRevealed) return;
+                isRevealed = false;
+                heroWrapper.classList.remove('is-revealed');
+            }
+
+            // 1. INTRO SCREEN: Swipe or tap to reveal Hero
             introScreen.addEventListener('touchstart', function(e) {
                 touchStartY = e.touches[0].clientY;
             }, { passive: true });
@@ -1174,32 +1182,78 @@
             introScreen.addEventListener('touchend', function(e) {
                 const touchEndY = e.changedTouches[0].clientY;
                 const deltaY = touchStartY - touchEndY;
-                if (Math.abs(deltaY) > 25) {
+                if (Math.abs(deltaY) > 20) {
                     revealHero();
                 }
             }, { passive: true });
 
-            // 2. Desktop mouse wheel
-            introScreen.addEventListener('wheel', function(e) {
-                if (Math.abs(e.deltaY) > 10) {
-                    revealHero();
-                }
-            }, { passive: true });
-
-            // 3. Click or tap anywhere on the intro screen
             introScreen.addEventListener('click', function() {
                 revealHero();
             });
 
-            // 4. Natural scroll trigger
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 20) {
+            introScreen.addEventListener('wheel', function(e) {
+                if (e.deltaY > 5) {
                     revealHero();
                 }
             }, { passive: true });
 
-            // 5. If URL has hash
-            if (window.location.hash) {
+            // 2. HERO SCREEN: Pull down on mobile to return Star
+            if (contentScreen) {
+                contentScreen.addEventListener('touchstart', function(e) {
+                    contentTouchStartY = e.touches[0].clientY;
+                }, { passive: true });
+
+                contentScreen.addEventListener('touchmove', function(e) {
+                    if (window.scrollY <= 10) {
+                        const currentY = e.touches[0].clientY;
+                        const deltaY = currentY - contentTouchStartY; // positive = pulling down
+                        if (deltaY > 30) {
+                            hideHero();
+                        }
+                    }
+                }, { passive: true });
+
+                contentScreen.addEventListener('touchend', function(e) {
+                    if (window.scrollY <= 10) {
+                        const currentY = e.changedTouches[0].clientY;
+                        const deltaY = currentY - contentTouchStartY;
+                        if (deltaY > 25) {
+                            hideHero();
+                        }
+                    }
+                }, { passive: true });
+            }
+
+            // 3. Desktop wheel: scroll up at top brings back Star
+            window.addEventListener('wheel', function(e) {
+                if (window.scrollY <= 5 && e.deltaY < -5 && isRevealed) {
+                    hideHero();
+                } else if (window.scrollY <= 5 && e.deltaY > 5 && !isRevealed) {
+                    revealHero();
+                }
+            }, { passive: true });
+
+            // 4. Window scroll: scrolling down reveals hero; scrolling back up to top (<= 5px) restores Star!
+            window.addEventListener('scroll', function() {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 40 && !isRevealed) {
+                    revealHero();
+                } else if (currentScrollY <= 5 && isRevealed) {
+                    hideHero();
+                }
+            }, { passive: true });
+
+            // 5. Clicking "Home", Header Logo or Scroll-to-Top restores Star
+            const homeTriggers = document.querySelectorAll('a[href="#hero"], a[href="#"], .logo-link, .scroll-top');
+            homeTriggers.forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    hideHero();
+                });
+            });
+
+            // 6. Direct anchor link on page load (e.g. #jobs)
+            if (window.location.hash && window.location.hash !== '#hero') {
                 revealHero();
             }
         });
