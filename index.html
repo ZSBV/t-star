@@ -87,54 +87,171 @@
 
 
     <style>
-        /* ===== HERO RESPONSIVE ===== */
-        
-        /* Desktop: Full-screen background image */
-        .hero-desktop-bg {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('images/hero-final-bg.jpg') center right / cover no-repeat;
-            z-index: 0;
-        }
-        
-        /* Mobile star image: hidden on desktop */
-        .hero-mobile-star {
-            display: none;
+        /* ===== HERO REVEAL & MOBILE OPTIMIZATIONS ===== */
+        #hero-reveal {
+            height: 200vh;
+            position: relative;
         }
 
+        .sticky-container {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #reveal-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 95px 20px 30px;
+            box-sizing: border-box;
+            opacity: 0;
+            pointer-events: none;
+            will-change: transform, opacity;
+            z-index: 5;
+        }
+
+        .hero-content-inner {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-main-title {
+            color: #111111;
+            font-size: clamp(32px, 5.5vw, 64px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle-partner {
+            color: var(--primary);
+            font-size: clamp(24px, 4vw, 46px);
+            font-weight: 800;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .hero-desc {
+            color: #555555;
+            font-size: clamp(15px, 2vw, 20px);
+            font-weight: 500;
+            margin-bottom: 35px;
+            max-width: 680px;
+            line-height: 1.5;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .hero-partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(25px, 5vw, 80px);
+            flex-wrap: wrap;
+            padding-top: 25px;
+            border-top: 1px solid #eaeaea;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .hero-partner-logos img {
+            height: clamp(32px, 5vw, 55px);
+            object-fit: contain;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.75;
+            transition: all 0.3s ease;
+        }
+
+        .hero-partner-logos img:hover {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Mobile specific adjustments */
         @media (max-width: 768px) {
-            /* On mobile: hide the background, show clean gradient */
-            .hero-desktop-bg {
-                display: none;
-            }
-            .hero-mobile-star {
-                display: none;
-            }
-            #hero {
-                height: auto !important;
-                min-height: auto !important;
-                padding: 130px 20px 60px !important;
-                background: linear-gradient(160deg, #ffffff 0%, #fff8f4 40%, #ffe8d6 100%) !important;
-            }
-            #hero .hero-text {
-                max-width: 100% !important;
-                text-align: center !important;
-            }
-            #hero .hero-text h1 {
-                font-size: 34px !important;
-                margin-bottom: 20px !important;
-            }
-            #hero .hero-text p {
-                font-size: 16px !important;
-            }
-            #hero .hero-buttons {
+            #reveal-content {
+                padding: 85px 15px 15px !important;
                 justify-content: center !important;
             }
-            #hero .hero-buttons .btn {
+
+            .hero-main-title {
+                font-size: 26px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.15;
+                letter-spacing: -0.5px;
+            }
+
+            .hero-subtitle-partner {
+                font-size: 18px !important;
+                margin-top: 2px;
+            }
+
+            .hero-desc {
+                font-size: 13px !important;
+                margin-bottom: 16px !important;
+                line-height: 1.4;
+                max-width: 310px;
+            }
+
+            .hero-cta-group {
+                gap: 10px;
+                margin-bottom: 18px !important;
                 width: 100%;
+                max-width: 280px;
+                flex-direction: column;
+            }
+
+            .hero-cta-group .btn {
+                width: 100%;
+                padding: 12px 20px !important;
+                font-size: 15px !important;
+                box-sizing: border-box;
                 text-align: center;
-                padding: 16px 30px !important;
-                font-size: 16px !important;
+            }
+
+            .hero-partner-logos {
+                padding-top: 12px !important;
+                gap: 18px !important;
+            }
+
+            .hero-partner-logos img {
+                height: 24px !important;
+            }
+
+            #intro-text h1 {
+                font-size: 32px !important;
+                letter-spacing: -1px;
+            }
+
+            #intro-text p {
+                font-size: 15px !important;
             }
         }
 
@@ -212,41 +329,39 @@
     
     <!-- Clean, Modern Hero Section (White Background) -->
     
-    <section id="hero-reveal" style="height: 150vh; position: relative;">
-        <div class="sticky-container" style="position: -webkit-sticky; position: sticky; top: 0; height: 100vh; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+    <section id="hero-reveal">
+        <div class="sticky-container">
             
             <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 100%; max-width: 1200px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; pointer-events: none; will-change: transform, opacity;">
+            <div id="reveal-content">
                 
-        
-        <!-- Subtle background accent (Very modern and premium) -->
-        <div style="position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(240,103,35,0.05) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+                <!-- Subtle background accent (Very modern and premium) -->
+                <div style="position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(240,103,35,0.05) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
 
-        <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 2;">
-            
-            <h1 style="color: #111; font-size: clamp(40px, 6vw, 70px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px;">
-                T-Star Promotion<br>
-                <span style="color: var(--primary); font-size: clamp(30px, 4vw, 50px);">Gemeinsam mit starken Partnern</span>
-            </h1>
-            
-            <p style="color: #555; font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; margin-bottom: 50px; max-width: 700px;">
-                Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten.
-            </p>
-            
-            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 60px;">
-                <a href="#jobs" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px; border-radius: 30px; box-shadow: 0 10px 25px rgba(240, 103, 35, 0.3);"><i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen</a>
-                <a href="partner.html" class="btn" style="padding: 18px 40px; font-size: 18px; border-radius: 30px; background: #f8f9fa; color: #333; border: 1px solid #eee;"><i class="fa-solid fa-handshake"></i> Partner werden</a>
-            </div>
+                <div class="hero-content-inner">
+                    
+                    <h1 class="hero-main-title">
+                        T-Star Promotion<br>
+                        <span class="hero-subtitle-partner">Gemeinsam mit starken Partnern</span>
+                    </h1>
+                    
+                    <p class="hero-desc">
+                        Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#jobs" class="btn btn-primary" style="border-radius: 30px; box-shadow: 0 10px 25px rgba(240, 103, 35, 0.3);"><i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen</a>
+                        <a href="partner.html" class="btn" style="border-radius: 30px; background: #f8f9fa; color: #333; border: 1px solid #eee;"><i class="fa-solid fa-handshake"></i> Partner werden</a>
+                    </div>
 
-            <!-- Partner Logos -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: clamp(30px, 6vw, 100px); flex-wrap: wrap; padding-top: 40px; border-top: 1px solid #eaeaea; width: 100%; max-width: 900px;">
-                <img src="images/partner-nr.png" alt="NR International Management GmbH" style="height: clamp(40px, 6vw, 60px); object-fit: contain; filter: grayscale(100%) contrast(1.2); opacity: 0.7; transition: all 0.3s ease;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) contrast(1.2)'; this.style.opacity='0.7'">
-                <img src="images/partner-telekom.jpg" alt="Telekom" style="height: clamp(40px, 6vw, 60px); object-fit: contain; filter: grayscale(100%) contrast(1.2); opacity: 0.7; transition: all 0.3s ease;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) contrast(1.2)'; this.style.opacity='0.7'">
-                <img src="images/partner-eon.png" alt="E.ON" style="height: clamp(40px, 6vw, 60px); object-fit: contain; filter: grayscale(100%) contrast(1.2); opacity: 0.7; transition: all 0.3s ease;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) contrast(1.2)'; this.style.opacity='0.7'">
-            </div>
-            
-        </div>
-    
+                    <!-- Partner Logos -->
+                    <div class="hero-partner-logos">
+                        <img src="images/partner-nr.png" alt="NR International Management GmbH">
+                        <img src="images/partner-telekom.jpg" alt="Telekom">
+                        <img src="images/partner-eon.png" alt="E.ON">
+                    </div>
+                    
+                </div>
             </div>
 
             
@@ -889,9 +1004,9 @@
             
             function setHeights() {
                 const winH = window.innerHeight;
-                reveal.style.height = (winH * 1.3) + 'px';
+                reveal.style.height = (winH * 2.0) + 'px';
                 stickyContainer.style.height = winH + 'px';
-                maxScroll = winH * 0.3;
+                maxScroll = winH * 1.0;
                 return winH;
             }
 
@@ -900,16 +1015,16 @@
                 let progress = -rect.top / (maxScroll > 0 ? maxScroll : 1);
                 progress = Math.max(0, Math.min(1, progress));
                 
-                // Intro fades out swiftly and smoothly (0 to 0.15)
-                const introFade = Math.max(0, 1 - progress / 0.15);
+                // 1. Intro fades out gradually and comfortably (0.0 to 0.35)
+                const introFade = Math.max(0, 1 - (progress / 0.35));
                 intro.style.opacity = introFade;
                 smallStar.style.opacity = introFade;
                 
-                const translateY = -progress * 60;
+                const translateY = -progress * 80;
                 intro.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
                 smallStar.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
 
-                if (progress > 0.15) {
+                if (progress > 0.35) {
                     intro.style.pointerEvents = "none";
                     smallStar.style.pointerEvents = "none";
                 } else {
@@ -917,21 +1032,21 @@
                     smallStar.style.pointerEvents = "auto";
                 }
 
-                // T-Star Promotion (Gemeinsam mit starken Partnern)
-                // Appears much faster and buttery smooth (starts at 0.05, 100% visible at 0.22!)
-                if (progress <= 0.05) {
+                // 2. Main Content (T-Star Promotion · Gemeinsam mit starken Partnern)
+                // Fades in gently and smoothly (0.20 to 0.70) - NOT rushed!
+                if (progress <= 0.20) {
                     content.style.opacity = 0;
                     content.style.pointerEvents = "none";
-                } else if (progress < 0.22) {
-                    const contentFade = (progress - 0.05) / 0.17;
+                } else if (progress < 0.70) {
+                    const contentFade = (progress - 0.20) / 0.50;
                     content.style.opacity = contentFade;
                     content.style.pointerEvents = "auto";
-                    const offset = (1 - contentFade) * 20;
-                    content.style.transform = `translate3d(-50%, calc(-50% + ${offset}px), 0)`;
+                    const offset = (1 - contentFade) * 30;
+                    content.style.transform = `translate3d(0, ${offset}px, 0)`;
                 } else {
                     content.style.opacity = 1;
                     content.style.pointerEvents = "auto";
-                    content.style.transform = `translate3d(-50%, -50%, 0)`;
+                    content.style.transform = `translate3d(0, 0, 0)`;
                 }
                 
                 ticking = false;
