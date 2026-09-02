@@ -87,15 +87,117 @@
 
 
     <style>
-        /* ===== HERO PREMIUM SECTION ===== */
-        .hero-premium {
+        /* ===== HERO SWIPE & INTRO SECTION ===== */
+        .hero-swipe-wrapper {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        /* SCREEN 1: White Intro Screen with Star Alone */
+        .hero-intro-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            cursor: pointer;
+            padding: 85px 20px 40px;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .hero-intro-inner {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+        }
+
+        .hero-intro-star {
+            margin-bottom: 25px;
+            animation: floatStar 5s ease-in-out infinite;
+        }
+
+        .intro-star-svg {
+            width: 85px;
+            height: 85px;
+            overflow: visible;
+        }
+
+        .intro-star-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawStar 3.5s ease-in-out infinite alternate;
+        }
+
+        .hero-intro-title {
+            color: #111111;
+            font-size: clamp(34px, 6vw, 56px);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .hero-intro-subtitle {
+            color: #666666;
+            font-size: clamp(16px, 3vw, 20px);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .hero-intro-arrow {
+            font-size: 28px;
+            color: #F06723;
+            animation: bounceArrow 2s infinite;
+        }
+
+        @keyframes bounceArrow {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
+        }
+
+        /* SCREEN 2: Full T-Star Promotion Content Screen */
+        .hero-content-screen {
             position: relative;
             background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F5 60%, #FFF3EC 100%);
             padding: 130px 20px 70px;
-            overflow: hidden;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            opacity: 0;
+            transform: scale(0.97) translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10;
         }
 
+        /* REVEALED STATE */
+        .hero-swipe-wrapper.is-revealed .hero-intro-screen {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .hero-swipe-wrapper.is-revealed .hero-content-screen {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Ambient Glow Backdrop */
         .hero-ambient-glow {
             position: absolute;
             top: -100px;
@@ -117,33 +219,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .hero-star-wrapper {
-            margin-bottom: 20px;
-            animation: floatStar 5s ease-in-out infinite;
-        }
-
-        .hero-star-svg {
-            width: 65px;
-            height: 65px;
-            overflow: visible;
-        }
-
-        .hero-star-path {
-            stroke-dasharray: 100;
-            stroke-dashoffset: 100;
-            animation: drawStar 3.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes drawStar {
-            0% { stroke-dashoffset: 100; }
-            100% { stroke-dashoffset: 0; }
-        }
-
-        @keyframes floatStar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
         }
 
         .hero-title {
@@ -253,34 +328,55 @@
             transform: scale(1.04);
         }
 
+        @keyframes drawStar {
+            0% { stroke-dashoffset: 100; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes floatStar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
         /* Responsive Mobile Tuning */
         @media (max-width: 768px) {
-            .hero-premium {
-                padding: 110px 18px 50px;
+            .hero-intro-screen {
+                padding: 95px 15px 30px;
             }
 
-            .hero-star-wrapper {
-                margin-bottom: 15px;
+            .intro-star-svg {
+                width: 70px;
+                height: 70px;
             }
 
-            .hero-star-svg {
-                width: 50px;
-                height: 50px;
+            .hero-intro-title {
+                font-size: 30px;
+                letter-spacing: -1px;
+            }
+
+            .hero-intro-subtitle {
+                font-size: 15px;
+                max-width: 290px;
+                margin-bottom: 20px;
+            }
+
+            .hero-content-screen {
+                padding: 100px 18px 50px;
             }
 
             .hero-title {
-                font-size: 28px;
+                font-size: 27px;
                 margin-bottom: 12px;
                 letter-spacing: -0.5px;
             }
 
             .hero-subtitle {
-                font-size: 20px;
+                font-size: 19px;
                 margin-top: 4px;
             }
 
             .hero-description {
-                font-size: 15px;
+                font-size: 14.5px;
                 margin-bottom: 25px;
                 line-height: 1.5;
             }
@@ -288,7 +384,7 @@
             .hero-actions {
                 flex-direction: column;
                 gap: 12px;
-                margin-bottom: 35px;
+                margin-bottom: 30px;
                 max-width: 320px;
             }
 
@@ -301,20 +397,20 @@
             }
 
             .hero-partners-trust {
-                padding-top: 25px;
+                padding-top: 20px;
             }
 
             .hero-partners-label {
                 font-size: 11.5px;
-                margin-bottom: 15px;
+                margin-bottom: 12px;
             }
 
             .hero-partners-grid {
-                gap: 25px;
+                gap: 22px;
             }
 
             .partner-logo-item img {
-                height: 32px;
+                height: 30px;
             }
         }
 
@@ -388,59 +484,71 @@
         </div>
     </header>
 
-    <!-- 2. Clean, Ultra-Premium Hero Section -->
-    <section id="hero" class="hero-premium">
-        <!-- Ambient radial glow backdrop -->
-        <div class="hero-ambient-glow"></div>
-
-        <div class="container hero-container">
-            <!-- Animated Floating Star Logo -->
-            <div class="hero-star-wrapper">
-                <svg viewBox="0 0 100 100" class="hero-star-svg">
-                    <defs>
-                        <linearGradient id="starGradHero" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#FFD700" />
-                            <stop offset="50%" stop-color="#F06723" />
-                            <stop offset="100%" stop-color="#D4551A" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGradHero)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" class="hero-star-path"/>
-                </svg>
+    <!-- 2. Interactive Swipe Hero Section -->
+    <section id="hero" class="hero-swipe-wrapper">
+        <!-- SCREEN 1: White Intro Screen with Star Alone -->
+        <div id="hero-intro-screen" class="hero-intro-screen">
+            <div class="hero-intro-inner">
+                <div class="hero-intro-star">
+                    <svg viewBox="0 0 100 100" class="intro-star-svg">
+                        <defs>
+                            <linearGradient id="starGradIntro" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#FFD700" />
+                                <stop offset="50%" stop-color="#F06723" />
+                                <stop offset="100%" stop-color="#D4551A" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGradIntro)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" class="intro-star-path"/>
+                    </svg>
+                </div>
+                <h1 class="hero-intro-title">T-Star Promotion</h1>
+                <p class="hero-intro-subtitle">Wische nach oben oder tippe hier,<br>um deine Karriere zu starten</p>
+                <div class="hero-intro-arrow">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
             </div>
+        </div>
 
-            <!-- Main Heading -->
-            <h1 class="hero-title">
-                T-Star Promotion<br>
-                <span class="hero-subtitle">Gemeinsam mit starken Partnern</span>
-            </h1>
+        <!-- SCREEN 2: Full T-Star Promotion · Gemeinsam mit starken Partnern Screen -->
+        <div id="hero-content-screen" class="hero-content-screen">
+            <!-- Ambient radial glow backdrop -->
+            <div class="hero-ambient-glow"></div>
 
-            <!-- Subheadline -->
-            <p class="hero-description">
-                Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten und Top-Provisionen.
-            </p>
+            <div class="container hero-container">
+                <!-- Main Heading -->
+                <h1 class="hero-title">
+                    T-Star Promotion<br>
+                    <span class="hero-subtitle">Gemeinsam mit starken Partnern</span>
+                </h1>
 
-            <!-- CTA Action Buttons -->
-            <div class="hero-actions">
-                <a href="#jobs" class="btn btn-primary hero-btn-main">
-                    <i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen
-                </a>
-                <a href="partner.html" class="btn hero-btn-secondary">
-                    <i class="fa-solid fa-handshake"></i> Partner werden
-                </a>
-            </div>
+                <!-- Subheadline -->
+                <p class="hero-description">
+                    Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten und Top-Provisionen.
+                </p>
 
-            <!-- Trust / Partner Logos -->
-            <div class="hero-partners-trust">
-                <span class="hero-partners-label">Offizieller Vertriebspartner für starke Marken:</span>
-                <div class="hero-partners-grid">
-                    <div class="partner-logo-item">
-                        <img src="images/partner-nr.png" alt="NR International Management GmbH">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="images/partner-telekom.jpg" alt="Deutsche Telekom">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="images/partner-eon.png" alt="E.ON">
+                <!-- CTA Action Buttons -->
+                <div class="hero-actions">
+                    <a href="#jobs" class="btn btn-primary hero-btn-main">
+                        <i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen
+                    </a>
+                    <a href="partner.html" class="btn hero-btn-secondary">
+                        <i class="fa-solid fa-handshake"></i> Partner werden
+                    </a>
+                </div>
+
+                <!-- Trust / Partner Logos -->
+                <div class="hero-partners-trust">
+                    <span class="hero-partners-label">Offizieller Vertriebspartner für starke Marken:</span>
+                    <div class="hero-partners-grid">
+                        <div class="partner-logo-item">
+                            <img src="images/partner-nr.png" alt="NR International Management GmbH">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="images/partner-telekom.jpg" alt="Deutsche Telekom">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="images/partner-eon.png" alt="E.ON">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1040,6 +1148,61 @@
                 window.location.href = "alle-jobs.html";
             }
         }
+    </script>
+
+    <!-- Interactive Hero Swipe Controller -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroWrapper = document.getElementById('hero');
+            const introScreen = document.getElementById('hero-intro-screen');
+            if (!heroWrapper || !introScreen) return;
+
+            let touchStartY = 0;
+            let isRevealed = false;
+
+            function revealHero() {
+                if (isRevealed) return;
+                isRevealed = true;
+                heroWrapper.classList.add('is-revealed');
+            }
+
+            // 1. Mobile touch swipe on intro screen
+            introScreen.addEventListener('touchstart', function(e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            introScreen.addEventListener('touchend', function(e) {
+                const touchEndY = e.changedTouches[0].clientY;
+                const deltaY = touchStartY - touchEndY;
+                if (Math.abs(deltaY) > 25) {
+                    revealHero();
+                }
+            }, { passive: true });
+
+            // 2. Desktop mouse wheel
+            introScreen.addEventListener('wheel', function(e) {
+                if (Math.abs(e.deltaY) > 10) {
+                    revealHero();
+                }
+            }, { passive: true });
+
+            // 3. Click or tap anywhere on the intro screen
+            introScreen.addEventListener('click', function() {
+                revealHero();
+            });
+
+            // 4. Natural scroll trigger
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) {
+                    revealHero();
+                }
+            }, { passive: true });
+
+            // 5. If URL has hash
+            if (window.location.hash) {
+                revealHero();
+            }
+        });
     </script>
 
 </body>
