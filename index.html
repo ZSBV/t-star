@@ -87,171 +87,234 @@
 
 
     <style>
-        /* ===== HERO REVEAL & MOBILE OPTIMIZATIONS ===== */
-        #hero-reveal {
-            height: 200vh;
+        /* ===== HERO PREMIUM SECTION ===== */
+        .hero-premium {
             position: relative;
-        }
-
-        .sticky-container {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            height: 100vh;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F5 60%, #FFF3EC 100%);
+            padding: 130px 20px 70px;
             overflow: hidden;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #reveal-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 95px 20px 30px;
-            box-sizing: border-box;
-            opacity: 0;
-            pointer-events: none;
-            will-change: transform, opacity;
-            z-index: 5;
-        }
-
-        .hero-content-inner {
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+        }
+
+        .hero-ambient-glow {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(240, 103, 35, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .hero-main-title {
-            color: #111111;
-            font-size: clamp(32px, 5.5vw, 64px);
+        .hero-star-wrapper {
+            margin-bottom: 20px;
+            animation: floatStar 5s ease-in-out infinite;
+        }
+
+        .hero-star-svg {
+            width: 65px;
+            height: 65px;
+            overflow: visible;
+        }
+
+        .hero-star-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawStar 3.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes drawStar {
+            0% { stroke-dashoffset: 100; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes floatStar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-title {
+            color: #1A1A1A;
+            font-size: clamp(34px, 5.5vw, 62px);
             font-weight: 900;
             line-height: 1.15;
-            margin-bottom: 16px;
             letter-spacing: -1px;
+            margin-bottom: 18px;
         }
 
-        .hero-subtitle-partner {
-            color: var(--primary);
-            font-size: clamp(24px, 4vw, 46px);
+        .hero-subtitle {
+            color: #F06723;
+            font-size: clamp(24px, 4vw, 44px);
             font-weight: 800;
             display: block;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
-        .hero-desc {
+        .hero-description {
             color: #555555;
-            font-size: clamp(15px, 2vw, 20px);
+            font-size: clamp(16px, 2vw, 20px);
             font-weight: 500;
-            margin-bottom: 35px;
+            line-height: 1.6;
             max-width: 680px;
-            line-height: 1.5;
+            margin: 0 auto 35px;
         }
 
-        .hero-cta-group {
+        .hero-actions {
             display: flex;
             gap: 18px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 35px;
+            margin-bottom: 50px;
+            width: 100%;
         }
 
-        .hero-partner-logos {
+        .hero-btn-main {
+            padding: 16px 36px !important;
+            font-size: 17px !important;
+            font-weight: 700;
+            border-radius: 30px !important;
+            box-shadow: 0 10px 25px rgba(240, 103, 35, 0.3) !important;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(240, 103, 35, 0.4) !important;
+        }
+
+        .hero-btn-secondary {
+            padding: 16px 36px !important;
+            font-size: 17px !important;
+            font-weight: 700;
+            border-radius: 30px !important;
+            background: #FFFFFF !important;
+            color: #1A1A1A !important;
+            border: 1px solid #E5E7EB !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn-secondary:hover {
+            background: #F9FAFB !important;
+            color: #F06723 !important;
+            border-color: #F06723 !important;
+            transform: translateY(-2px);
+        }
+
+        .hero-partners-trust {
+            width: 100%;
+            max-width: 850px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-partners-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 20px;
+        }
+
+        .hero-partners-grid {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: clamp(25px, 5vw, 80px);
+            gap: clamp(30px, 6vw, 90px);
             flex-wrap: wrap;
-            padding-top: 25px;
-            border-top: 1px solid #eaeaea;
-            width: 100%;
-            max-width: 800px;
         }
 
-        .hero-partner-logos img {
-            height: clamp(32px, 5vw, 55px);
+        .partner-logo-item img {
+            height: clamp(36px, 5vw, 55px);
             object-fit: contain;
-            filter: grayscale(100%) contrast(1.2);
+            filter: grayscale(100%) contrast(1.1);
             opacity: 0.75;
             transition: all 0.3s ease;
         }
 
-        .hero-partner-logos img:hover {
+        .partner-logo-item img:hover {
             filter: none;
             opacity: 1;
+            transform: scale(1.04);
         }
 
-        /* Mobile specific adjustments */
+        /* Responsive Mobile Tuning */
         @media (max-width: 768px) {
-            #reveal-content {
-                padding: 85px 15px 15px !important;
-                justify-content: center !important;
+            .hero-premium {
+                padding: 110px 18px 50px;
             }
 
-            .hero-main-title {
-                font-size: 26px !important;
-                margin-bottom: 8px !important;
-                line-height: 1.15;
+            .hero-star-wrapper {
+                margin-bottom: 15px;
+            }
+
+            .hero-star-svg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+                margin-bottom: 12px;
                 letter-spacing: -0.5px;
             }
 
-            .hero-subtitle-partner {
-                font-size: 18px !important;
-                margin-top: 2px;
+            .hero-subtitle {
+                font-size: 20px;
+                margin-top: 4px;
             }
 
-            .hero-desc {
-                font-size: 13px !important;
-                margin-bottom: 16px !important;
-                line-height: 1.4;
-                max-width: 310px;
+            .hero-description {
+                font-size: 15px;
+                margin-bottom: 25px;
+                line-height: 1.5;
             }
 
-            .hero-cta-group {
-                gap: 10px;
-                margin-bottom: 18px !important;
-                width: 100%;
-                max-width: 280px;
+            .hero-actions {
                 flex-direction: column;
+                gap: 12px;
+                margin-bottom: 35px;
+                max-width: 320px;
             }
 
-            .hero-cta-group .btn {
+            .hero-btn-main,
+            .hero-btn-secondary {
                 width: 100%;
-                padding: 12px 20px !important;
-                font-size: 15px !important;
                 box-sizing: border-box;
-                text-align: center;
+                padding: 14px 20px !important;
+                font-size: 16px !important;
             }
 
-            .hero-partner-logos {
-                padding-top: 12px !important;
-                gap: 18px !important;
+            .hero-partners-trust {
+                padding-top: 25px;
             }
 
-            .hero-partner-logos img {
-                height: 24px !important;
+            .hero-partners-label {
+                font-size: 11.5px;
+                margin-bottom: 15px;
             }
 
-            #intro-text h1 {
-                font-size: 32px !important;
-                letter-spacing: -1px;
+            .hero-partners-grid {
+                gap: 25px;
             }
 
-            #intro-text p {
-                font-size: 15px !important;
+            .partner-logo-item img {
+                height: 32px;
             }
         }
 
@@ -325,79 +388,67 @@
         </div>
     </header>
 
-    <!-- 2. Interactive Hero Reveal Section -->
-    
-    <!-- Clean, Modern Hero Section (White Background) -->
-    
-    <section id="hero-reveal">
-        <div class="sticky-container">
-            
-            <!-- Hidden Background Content (Revealed on scroll) -->
-            <div id="reveal-content">
-                
-                <!-- Subtle background accent (Very modern and premium) -->
-                <div style="position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(240,103,35,0.05) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+    <!-- 2. Clean, Ultra-Premium Hero Section -->
+    <section id="hero" class="hero-premium">
+        <!-- Ambient radial glow backdrop -->
+        <div class="hero-ambient-glow"></div>
 
-                <div class="hero-content-inner">
-                    
-                    <h1 class="hero-main-title">
-                        T-Star Promotion<br>
-                        <span class="hero-subtitle-partner">Gemeinsam mit starken Partnern</span>
-                    </h1>
-                    
-                    <p class="hero-desc">
-                        Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten.
-                    </p>
-                    
-                    <div class="hero-cta-group">
-                        <a href="#jobs" class="btn btn-primary" style="border-radius: 30px; box-shadow: 0 10px 25px rgba(240, 103, 35, 0.3);"><i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen</a>
-                        <a href="partner.html" class="btn" style="border-radius: 30px; background: #f8f9fa; color: #333; border: 1px solid #eee;"><i class="fa-solid fa-handshake"></i> Partner werden</a>
-                    </div>
+        <div class="container hero-container">
+            <!-- Animated Floating Star Logo -->
+            <div class="hero-star-wrapper">
+                <svg viewBox="0 0 100 100" class="hero-star-svg">
+                    <defs>
+                        <linearGradient id="starGradHero" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#FFD700" />
+                            <stop offset="50%" stop-color="#F06723" />
+                            <stop offset="100%" stop-color="#D4551A" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGradHero)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" class="hero-star-path"/>
+                </svg>
+            </div>
 
-                    <!-- Partner Logos -->
-                    <div class="hero-partner-logos">
+            <!-- Main Heading -->
+            <h1 class="hero-title">
+                T-Star Promotion<br>
+                <span class="hero-subtitle">Gemeinsam mit starken Partnern</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="hero-description">
+                Deine Zukunft im Direktvertrieb für Glasfaser & Energie. Werde Teil eines Top-Teams und profitiere von maximalen Abschlussquoten und Top-Provisionen.
+            </p>
+
+            <!-- CTA Action Buttons -->
+            <div class="hero-actions">
+                <a href="#jobs" class="btn btn-primary hero-btn-main">
+                    <i class="fa-solid fa-briefcase"></i> Offene Stellen ansehen
+                </a>
+                <a href="partner.html" class="btn hero-btn-secondary">
+                    <i class="fa-solid fa-handshake"></i> Partner werden
+                </a>
+            </div>
+
+            <!-- Trust / Partner Logos -->
+            <div class="hero-partners-trust">
+                <span class="hero-partners-label">Offizieller Vertriebspartner für starke Marken:</span>
+                <div class="hero-partners-grid">
+                    <div class="partner-logo-item">
                         <img src="images/partner-nr.png" alt="NR International Management GmbH">
-                        <img src="images/partner-telekom.jpg" alt="Telekom">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="images/partner-telekom.jpg" alt="Deutsche Telekom">
+                    </div>
+                    <div class="partner-logo-item">
                         <img src="images/partner-eon.png" alt="E.ON">
                     </div>
-                    
-                </div>
-            </div>
-
-            
-
-            <!-- Initial Intro Text on White Background -->
-            <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center; z-index: 10; width: 100%;">
-                <h1 style="color: #111; font-size: clamp(40px, 6vw, 70px); font-weight: 900; letter-spacing: -2px;">T-Star Promotion</h1>
-                <p style="color: #666; font-size: 20px; font-weight: 500; margin-top: 10px;">Scrolle nach unten, um deine Karriere zu starten</p>
-                <div style="font-size: 28px; color: var(--primary); margin-top: 30px; animation: bounce 2s infinite;"><i class="fa-solid fa-arrow-down"></i></div>
-            </div>
-
-            <!-- Small floating star logo (hollow and animated) -->
-            <div id="small-star" style="position: absolute; top: 30%; left: 50%; transform: translate3d(-50%, -50%, 0); z-index: 15; will-change: transform, opacity;">
-                <div style="animation: floatShooting 7s ease-in-out infinite;">
-                    <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; overflow: visible;">
-                        <defs>
-                            <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="10%" stop-color="#FFD700" />
-                                <stop offset="50%" stop-color="#F06723" />
-                                <stop offset="100%" stop-color="#F06723" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M50,5 L63,38 L98,38 L70,58 L80,95 L50,73 L20,95 L30,58 L2,38 L37,38 Z" fill="none" stroke="url(#starGrad)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="100" style="stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawStarElegant 4.5s ease-in-out infinite alternate;"/>
-                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    
-
-    
-    
-    
-
-    <section id="jobs" class="jobs section" style="margin-top: -15vh; position: relative; z-index: 20; padding-top: 40px;">
+    <!-- 3. Offene Stellen Section -->
+    <section id="jobs" class="jobs section">
         <div class="container">
             <div class="section-header">
                 <h2>Offene Stellen</h2>
@@ -989,85 +1040,6 @@
                 window.location.href = "alle-jobs.html";
             }
         }
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const reveal = document.getElementById('hero-reveal');
-            const stickyContainer = document.querySelector('.sticky-container');
-            const intro = document.getElementById('intro-text');
-            const smallStar = document.getElementById('small-star');
-            const content = document.getElementById('reveal-content');
-            
-            let maxScroll = 0;
-            let ticking = false;
-            
-            function setHeights() {
-                const winH = window.innerHeight;
-                reveal.style.height = (winH * 2.0) + 'px';
-                stickyContainer.style.height = winH + 'px';
-                maxScroll = winH * 1.0;
-                return winH;
-            }
-
-            function updateAnimation() {
-                const rect = reveal.getBoundingClientRect();
-                let progress = -rect.top / (maxScroll > 0 ? maxScroll : 1);
-                progress = Math.max(0, Math.min(1, progress));
-                
-                // 1. Intro fades out gradually and comfortably (0.0 to 0.35)
-                const introFade = Math.max(0, 1 - (progress / 0.35));
-                intro.style.opacity = introFade;
-                smallStar.style.opacity = introFade;
-                
-                const translateY = -progress * 80;
-                intro.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
-                smallStar.style.transform = `translate3d(-50%, calc(-50% + ${translateY}px), 0)`;
-
-                if (progress > 0.35) {
-                    intro.style.pointerEvents = "none";
-                    smallStar.style.pointerEvents = "none";
-                } else {
-                    intro.style.pointerEvents = "auto";
-                    smallStar.style.pointerEvents = "auto";
-                }
-
-                // 2. Main Content (T-Star Promotion · Gemeinsam mit starken Partnern)
-                // Fades in gently and smoothly (0.20 to 0.70) - NOT rushed!
-                if (progress <= 0.20) {
-                    content.style.opacity = 0;
-                    content.style.pointerEvents = "none";
-                } else if (progress < 0.70) {
-                    const contentFade = (progress - 0.20) / 0.50;
-                    content.style.opacity = contentFade;
-                    content.style.pointerEvents = "auto";
-                    const offset = (1 - contentFade) * 30;
-                    content.style.transform = `translate3d(0, ${offset}px, 0)`;
-                } else {
-                    content.style.opacity = 1;
-                    content.style.pointerEvents = "auto";
-                    content.style.transform = `translate3d(0, 0, 0)`;
-                }
-                
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateAnimation);
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('resize', () => {
-                setHeights();
-                requestTick();
-            });
-
-            setHeights();
-            window.addEventListener('scroll', requestTick, { passive: true });
-            updateAnimation();
-        });
     </script>
 
 </body>
