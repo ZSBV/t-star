@@ -171,7 +171,7 @@
         /* SCREEN 2: Full T-Star Promotion Content Screen */
         .hero-content-screen {
             position: relative;
-            background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F5 60%, #FFF3EC 100%);
+            background: #FFFFFF;
             padding: 130px 20px 70px;
             min-height: 100vh;
             box-sizing: border-box;
@@ -316,10 +316,12 @@
 
         .partner-logo-item img {
             height: clamp(36px, 5vw, 55px);
+            max-width: 130px;
             object-fit: contain;
             filter: grayscale(100%) contrast(1.1);
             opacity: 0.75;
             transition: all 0.3s ease;
+            mix-blend-mode: multiply;
         }
 
         .partner-logo-item img:hover {
@@ -538,16 +540,16 @@
 
                 <!-- Trust / Partner Logos -->
                 <div class="hero-partners-trust">
-                    <span class="hero-partners-label">Offizieller Vertriebspartner für starke Marken:</span>
+                    <span class="hero-partners-label">Offizieller Vertriebspartner für Telekom, E.ON & starke Marken:</span>
                     <div class="hero-partners-grid">
                         <div class="partner-logo-item">
                             <img src="images/partner-nr.png" alt="NR International Management GmbH">
                         </div>
                         <div class="partner-logo-item">
-                            <img src="images/partner-telekom.jpg" alt="Deutsche Telekom">
+                            <img src="images/partner-telekom.svg" alt="Deutsche Telekom">
                         </div>
                         <div class="partner-logo-item">
-                            <img src="images/partner-eon.png" alt="E.ON">
+                            <img src="images/partner-eon.svg" alt="E.ON">
                         </div>
                     </div>
                 </div>
